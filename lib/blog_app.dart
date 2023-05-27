@@ -8,7 +8,6 @@ class BlogApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      
       routerConfig: router,
     );
   }
