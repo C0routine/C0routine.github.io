@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:blog/viewmodel/provider/theme_vm.dart';
-
 
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
@@ -13,15 +10,17 @@ class RootScreen extends StatefulWidget {
 class _RootScreen extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
+    print('rerender');
     return Scaffold(
-      backgroundColor: context.watch<ThemeVM>().light ? Colors.white : Colors.black,
-      body: Center(
-        child: Switch(
-          value: context.watch<ThemeVM>().light,
-          onChanged: (bool value) {
-            context.read<ThemeVM>().change();
-          },
-        ),
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          // mobile, desktop
+          if (constraints.maxWidth > 600) {
+            return Container();
+          } else {
+            return Container();
+          }
+        },
       ),
     );
   }
