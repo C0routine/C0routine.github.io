@@ -1,3 +1,4 @@
+import 'package:blog/view/widgets/root/blog_title_d.dart';
 import 'package:flutter/material.dart';
 
 import 'package:blog/view/widgets/root/navigator_selector_d.dart';
@@ -17,6 +18,7 @@ class _RootScreen extends State<RootScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            BlogTitle(),
             NavigatorSelectorDesktop(title: 'P O R T F O L I O', selectType: 0),
             NavigatorSelectorDesktop(title: 'T E C H  B L O G', selectType: 1),
           ],
