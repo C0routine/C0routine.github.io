@@ -6,6 +6,9 @@ class AppTheme {
     useMaterial3: true,
     textTheme: darkTextTheme,
     scaffoldBackgroundColor: AppColor.darkBackground,
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColor.darkBackground,
+    ),
   );
 
   static TextTheme darkTextTheme = const TextTheme(
@@ -13,7 +16,7 @@ class AppTheme {
     titleMedium: TextStyle(fontSize: 32, color: AppColor.darkText),
     bodyMedium: TextStyle(
       fontSize: 17,
-      color: AppColor.white,
+      color: AppColor.darkText,
       fontWeight: FontWeight.w400,
     ),
   );
