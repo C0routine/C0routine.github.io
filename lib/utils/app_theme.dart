@@ -6,8 +6,10 @@ class AppTheme {
     useMaterial3: true,
     textTheme: darkTextTheme,
     scaffoldBackgroundColor: AppColor.darkBackground,
-    appBarTheme: AppBarTheme(
+    navigationRailTheme: NavigationRailThemeData(
       backgroundColor: AppColor.darkBackground,
+      selectedLabelTextStyle: darkTextTheme.bodyMedium,
+      unselectedLabelTextStyle: darkTextTheme.bodyMedium,
     ),
   );
 

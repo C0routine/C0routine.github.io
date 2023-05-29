@@ -1,41 +1,69 @@
-import 'package:blog/view/widgets/root/blog_title_d.dart';
+import 'package:blog/utils/app_color.dart';
 import 'package:flutter/material.dart';
 
-import 'package:blog/view/widgets/root/navigator_selector_d.dart';
-
 class RootScreen extends StatefulWidget {
-  const RootScreen({super.key});
+  const RootScreen({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _RootScreen();
+  State<RootScreen> createState() => _RootScreenState();
 }
 
-class _RootScreen extends State<RootScreen> {
+class _RootScreenState extends State<RootScreen> {
+  int _selectIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    Widget desktopUI() {
-      return const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            BlogTitle(),
-            NavigatorSelectorDesktop(title: 'P O R T F O L I O', selectType: 0),
-            NavigatorSelectorDesktop(title: 'T E C H  B L O G', selectType: 1),
-          ],
-        ),
-      );
-    }
+    print('render New Root');
 
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          // mobile, desktop
-          if (constraints.maxWidth > 600) {
-            return desktopUI();
-          } else {
-            return Container();
-          }
-        },
+      body: Row(
+        children: [
+          NavigationRail(
+            // rail 확장
+            extended: false,
+            useIndicator: true,
+            indicatorColor: Colors.transparent,
+            // icons 위치
+            groupAlignment: 0.0,
+            // select 한 label text 만 show
+            labelType: NavigationRailLabelType.selected,
+            // rail icon setting
+            destinations: const <NavigationRailDestination>[
+              NavigationRailDestination(
+                icon: Icon(Icons.maps_home_work_outlined, color: AppColor.temp),
+                selectedIcon: Icon(Icons.maps_home_work_rounded, color: AppColor.darkAccent),
+                label: Text('Home'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.person_search_outlined, color: AppColor.temp,),
+                selectedIcon: Icon(Icons.person_search_rounded, color: AppColor.darkAccent),
+                label: Text('Portfolio'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.code_rounded, color: AppColor.temp,),
+                selectedIcon: Icon(Icons.code_rounded, color: AppColor.darkAccent),
+                label: Text('Tech'),
+              ),
+            ],
+            // rail selected change
+            onDestinationSelected: (int select) {
+              if (_selectIndex != select) {
+                setState(() {
+                  _selectIndex = select;
+                });
+              }
+            },
+            // rail select value
+            selectedIndex: _selectIndex,
+          ),
+          const VerticalDivider(thickness: 2, width: 0),
+          const Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [],
+            ),
+          ),
+        ],
       ),
     );
   }

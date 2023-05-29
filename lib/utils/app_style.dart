@@ -9,6 +9,11 @@ class AppStyle {
     return _appStyle;
   }
 
+  /// Desktop 상태인지 확인
+  static bool isDesktop(BuildContext context) {
+    return MediaQuery.of(context).size.width > 600;
+  }
+
   static const EdgeInsets gapTop = EdgeInsets.only(top: 20);
   static const EdgeInsets gapBottom = EdgeInsets.only(bottom: 20);
   static const EdgeInsets gapLeft = EdgeInsets.only(left: 20);

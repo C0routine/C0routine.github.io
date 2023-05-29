@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:blog/utils/app_color.dart';
-
-class NavigatorSelectorDesktop extends StatefulWidget {
-  const NavigatorSelectorDesktop({super.key, required this.title, required this.selectType});
+class HomeAlphaBody extends StatefulWidget {
+  const HomeAlphaBody({super.key, required this.title, required this.selectType});
 
   final String title;
   final int selectType;
 
   @override
-  State<StatefulWidget> createState() => _NavigatorSelectorDesktop();
+  State<StatefulWidget> createState() => _HomeAlphaBody();
 }
 
-class _NavigatorSelectorDesktop extends State<NavigatorSelectorDesktop> with TickerProviderStateMixin {
+class _HomeAlphaBody extends State<HomeAlphaBody> with TickerProviderStateMixin {
   bool onFocus = false;
 
   late final AnimationController _animationController;
@@ -56,11 +54,11 @@ class _NavigatorSelectorDesktop extends State<NavigatorSelectorDesktop> with Tic
           child: Container(
             width: 400,
             height: 100,
-            margin: EdgeInsets.only(top: 20),
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             decoration: BoxDecoration(
-              color: onFocus ? AppColor.darkAccent.withOpacity(0.3) : Colors.transparent,
-              border: Border.all(width: 5, color: AppColor.white),
+              color: onFocus ? const Color(0xFF006fff).withOpacity(0.3) : Colors.transparent,
+              border: Border.all(width: 5, color: const Color(0xFFFFFFFF)),
             ),
             alignment: Alignment.center,
             child: Text(
