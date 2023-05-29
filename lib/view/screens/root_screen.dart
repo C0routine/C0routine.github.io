@@ -1,5 +1,3 @@
-import 'package:blog/utils/app_color.dart';
-import 'package:blog/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 class RootScreen extends StatefulWidget {
@@ -14,37 +12,38 @@ class _RootScreenState extends State<RootScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> screenList = [
+      Container(color: Colors.red),
+      Container(color: Colors.green),
+      Container(color: Colors.blue),
+    ];
+
     return Scaffold(
       body: Row(
         children: [
           NavigationRail(
             // rail 확장
             extended: false,
-            useIndicator: true,
-            indicatorColor: Colors.transparent,
             // icons 위치
             groupAlignment: 0.0,
             // select 한 label text 만 show
             labelType: NavigationRailLabelType.selected,
             // rail icon setting
-            destinations: <NavigationRailDestination>[
+            destinations: const <NavigationRailDestination>[
               NavigationRailDestination(
-                icon: Icon(Icons.maps_home_work_outlined, color: AppColor.disable),
-                selectedIcon: Icon(Icons.maps_home_work_rounded, color: AppColor.accent),
+                icon: Icon(Icons.maps_home_work_outlined),
+                selectedIcon: Icon(Icons.maps_home_work_rounded),
                 label: Text('Home'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.person_search_outlined, color: AppColor.disable),
-                selectedIcon: Icon(Icons.person_search_rounded, color: AppColor.accent),
-                label: Text('Portfolio'),
+                icon: Icon(Icons.person_search_outlined),
+                selectedIcon: Icon(Icons.person_search_rounded),
+                label: Text('Profile'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.code_rounded, color: AppColor.disable),
-                selectedIcon: Icon(Icons.code_rounded, color: AppColor.accent),
-                label: Text(
-                  'Tech',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
+                icon: Icon(Icons.code_rounded),
+                selectedIcon: Icon(Icons.code_rounded),
+                label: Text('Tech'),
               ),
             ],
             // rail selected change
@@ -58,13 +57,8 @@ class _RootScreenState extends State<RootScreen> {
             // rail select value
             selectedIndex: _selectIndex,
           ),
-          const VerticalDivider(thickness: 2, width: 0),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [],
-            ),
-          ),
+          const VerticalDivider(thickness: 0.16, width: 0),
+          Expanded(child: screenList[_selectIndex]),
         ],
       ),
     );
