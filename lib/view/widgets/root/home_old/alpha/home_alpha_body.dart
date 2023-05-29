@@ -39,12 +39,12 @@ class _HomeAlphaBody extends State<HomeAlphaBody> with TickerProviderStateMixin 
       child: GestureDetector(
         onTap: () {
           if (widget.selectType == 0) {
-            context.go('/portfolio');
+            // context.go('/portfolio');
             return;
           }
 
           if (widget.selectType == 1) {
-            context.go('/tech');
+            // context.go('/tech');
             return;
           }
         },
@@ -63,7 +63,11 @@ class _HomeAlphaBody extends State<HomeAlphaBody> with TickerProviderStateMixin 
             alignment: Alignment.center,
             child: Text(
               widget.title,
-              style: Theme.of(context).textTheme.titleLarge,
+              style: const TextStyle(
+                fontSize: 48,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFFFFFFFF),
+              ),
               textAlign: TextAlign.center,
             ),
           ),

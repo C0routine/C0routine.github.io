@@ -45,13 +45,14 @@ class _HomeAlphaTitle extends State<HomeAlphaTitle> with TickerProviderStateMixi
             tileMode: TileMode.mirror,
           ).createShader(bounds);
         },
-        child: Text(
+        child: const Text(
           'C0routine Blog',
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                fontSize: 55,
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w900,
-              ),
+          style: TextStyle(
+            fontSize: 55,
+            fontWeight: FontWeight.w900,
+            fontStyle: FontStyle.italic,
+            color: Color(0xFFFFFFFF),
+          ),
         ),
       ),
     );
