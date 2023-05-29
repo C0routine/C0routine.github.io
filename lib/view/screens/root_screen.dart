@@ -30,18 +30,18 @@ class _RootScreenState extends State<RootScreen> {
             // rail icon setting
             destinations: const <NavigationRailDestination>[
               NavigationRailDestination(
-                icon: Icon(Icons.maps_home_work_outlined, color: AppColor.temp),
-                selectedIcon: Icon(Icons.maps_home_work_rounded, color: AppColor.darkAccent),
+                icon: Icon(Icons.maps_home_work_outlined, color: AppColor.disable),
+                selectedIcon: Icon(Icons.maps_home_work_rounded, color: AppColor.accent),
                 label: Text('Home'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.person_search_outlined, color: AppColor.temp,),
-                selectedIcon: Icon(Icons.person_search_rounded, color: AppColor.darkAccent),
+                icon: Icon(Icons.person_search_outlined, color: AppColor.disable),
+                selectedIcon: Icon(Icons.person_search_rounded, color: AppColor.accent),
                 label: Text('Portfolio'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.code_rounded, color: AppColor.temp,),
-                selectedIcon: Icon(Icons.code_rounded, color: AppColor.darkAccent),
+                icon: Icon(Icons.code_rounded, color: AppColor.disable),
+                selectedIcon: Icon(Icons.code_rounded, color: AppColor.accent),
                 label: Text('Tech'),
               ),
             ],
@@ -57,7 +57,7 @@ class _RootScreenState extends State<RootScreen> {
             selectedIndex: _selectIndex,
           ),
           const VerticalDivider(thickness: 2, width: 0),
-          const Expanded(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [],
