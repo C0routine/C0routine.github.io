@@ -1,4 +1,5 @@
 import 'package:blog/utils/app_color.dart';
+import 'package:blog/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 class RootScreen extends StatefulWidget {
@@ -13,8 +14,6 @@ class _RootScreenState extends State<RootScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('render New Root');
-
     return Scaffold(
       body: Row(
         children: [
@@ -28,7 +27,7 @@ class _RootScreenState extends State<RootScreen> {
             // select 한 label text 만 show
             labelType: NavigationRailLabelType.selected,
             // rail icon setting
-            destinations: const <NavigationRailDestination>[
+            destinations: <NavigationRailDestination>[
               NavigationRailDestination(
                 icon: Icon(Icons.maps_home_work_outlined, color: AppColor.disable),
                 selectedIcon: Icon(Icons.maps_home_work_rounded, color: AppColor.accent),
@@ -42,7 +41,10 @@ class _RootScreenState extends State<RootScreen> {
               NavigationRailDestination(
                 icon: Icon(Icons.code_rounded, color: AppColor.disable),
                 selectedIcon: Icon(Icons.code_rounded, color: AppColor.accent),
-                label: Text('Tech'),
+                label: Text(
+                  'Tech',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ),
             ],
             // rail selected change

@@ -1,27 +1,32 @@
-import 'package:blog/utils/app_color.dart';
 import 'package:flutter/material.dart';
 
+import 'package:blog/utils/app_color.dart';
+
 class AppTheme {
-  static ThemeData main = ThemeData(
-    useMaterial3: true,
-    textTheme: mainTextTheme,
-    scaffoldBackgroundColor: AppColor.background,
-    navigationRailTheme: NavigationRailThemeData(
-      backgroundColor: AppColor.background,
-      selectedLabelTextStyle: mainTextTheme.bodyMedium,
-      unselectedLabelTextStyle: mainTextTheme.bodyMedium,
+  static ThemeData responsive(bool isExtend) {
+    return ThemeData(
+      useMaterial3: true,
+      textTheme: isExtend ? desktopTextTheme : mobileTextTheme,
+      scaffoldBackgroundColor: AppColor.background,
+      navigationRailTheme: NavigationRailThemeData(
+        backgroundColor: AppColor.background,
+        selectedLabelTextStyle: isExtend ? desktopTextTheme.bodyMedium : mobileTextTheme.bodyMedium,
+        unselectedLabelTextStyle: isExtend ? desktopTextTheme.bodyMedium : mobileTextTheme.bodyMedium,
+      ),
+    );
+  }
+
+  static const TextTheme desktopTextTheme = TextTheme(
+    bodyMedium: TextStyle(
+      fontSize: 17,
+      color: AppColor.text,
+      fontWeight: FontWeight.w400,
     ),
   );
 
-  static TextTheme mainTextTheme = const TextTheme(
-    titleLarge: TextStyle(fontSize: 48, color: AppColor.text),
-    titleMedium: TextStyle(fontSize: 32, color: AppColor.text),
-    titleSmall: TextStyle(
-      fontSize: 24,
-      color: AppColor.text,
-    ),
+  static const TextTheme mobileTextTheme = TextTheme(
     bodyMedium: TextStyle(
-      fontSize: 17,
+      fontSize: 12,
       color: AppColor.text,
       fontWeight: FontWeight.w400,
     ),
