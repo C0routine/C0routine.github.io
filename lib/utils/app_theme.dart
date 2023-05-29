@@ -21,6 +21,12 @@ class AppTheme {
   }
 
   static const TextTheme desktopTextTheme = TextTheme(
+    titleLarge: TextStyle(
+      fontSize: 48,
+      color: AppColor.text,
+      fontWeight: FontWeight.w900,
+    ),
+
     // 소제목
     titleSmall: TextStyle(
       fontSize: 18,

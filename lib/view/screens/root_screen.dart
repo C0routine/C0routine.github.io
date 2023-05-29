@@ -1,3 +1,4 @@
+import 'package:blog/view/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class RootScreen extends StatefulWidget {
@@ -8,13 +9,13 @@ class RootScreen extends StatefulWidget {
 }
 
 class _RootScreenState extends State<RootScreen> {
-  int _selectIndex = 0;
+  int _selectIndex = 1;
 
   @override
   Widget build(BuildContext context) {
     List<Widget> screenList = [
       Container(color: Colors.red),
-      Container(color: Colors.green),
+      const ProfileScreen(),
       Container(color: Colors.blue),
     ];
 

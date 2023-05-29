@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:blog/view/widgets/root/home_old/alpha/home_alpha_title.dart';
-import 'package:blog/view/widgets/root/home_old/alpha/home_alpha_body.dart';
+import 'package:blog/view/widgets/home_old/alpha/home_alpha_title.dart';
+import 'package:blog/view/widgets/home_old/alpha/home_alpha_body.dart';
 
 class HomeScreenAlpha extends StatefulWidget {
   const HomeScreenAlpha({super.key});
