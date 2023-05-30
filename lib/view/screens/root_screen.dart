@@ -1,4 +1,6 @@
+import 'package:blog/utils/app_color.dart';
 import 'package:blog/view/screens/profile_screen.dart';
+import 'package:blog/view/screens/tech_screen.dart';
 import 'package:flutter/material.dart';
 
 class RootScreen extends StatefulWidget {
@@ -16,7 +18,7 @@ class _RootScreenState extends State<RootScreen> {
     List<Widget> screenList = [
       Container(color: Colors.red),
       const ProfileScreen(),
-      Container(color: Colors.blue),
+      const TechScreen(),
     ];
 
     return Scaffold(
