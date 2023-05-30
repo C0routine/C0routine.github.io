@@ -20,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           controller: pageController,
           scrollDirection: Axis.vertical,
           physics: const PageScrollPhysics(),
-          pageSnapping: true,
+          pageSnapping: false,
           children: [
             ProfileIntro(),
             Center(child: Text('Second Page')),

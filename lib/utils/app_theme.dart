@@ -43,7 +43,7 @@ class AppTheme {
 
   static const TextTheme mobileTextTheme = TextTheme(
     bodyMedium: TextStyle(
-      fontSize: 15,
+      fontSize: 12,
       color: AppColor.text,
       fontWeight: FontWeight.w400,
     ),
