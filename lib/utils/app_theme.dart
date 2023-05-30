@@ -21,17 +21,17 @@ class AppTheme {
   }
 
   static const TextTheme desktopTextTheme = TextTheme(
+    // UI Text
     titleLarge: TextStyle(
       fontSize: 48,
       color: AppColor.text,
       fontWeight: FontWeight.w900,
     ),
-
     // 소제목
     titleSmall: TextStyle(
-      fontSize: 18,
+      fontSize: 20,
       color: AppColor.text,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w700,
     ),
     // 일반 크기
     bodyMedium: TextStyle(
@@ -42,6 +42,13 @@ class AppTheme {
   );
 
   static const TextTheme mobileTextTheme = TextTheme(
+    // UI Text
+    titleLarge: TextStyle(
+      fontSize: 40,
+      color: AppColor.text,
+      fontWeight: FontWeight.w900,
+    ),
+
     bodyMedium: TextStyle(
       fontSize: 12,
       color: AppColor.text,

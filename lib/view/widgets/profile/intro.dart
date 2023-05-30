@@ -40,6 +40,7 @@ class _ProfileIntroState extends State<ProfileIntro> with TickerProviderStateMix
   @override
   void dispose() {
     _textController.dispose();
+    _scaleController.dispose();
     super.dispose();
   }
 
@@ -56,7 +57,11 @@ class _ProfileIntroState extends State<ProfileIntro> with TickerProviderStateMix
               imageFilter: ImageFilter.matrix(Matrix4.rotationZ(rotate).storage),
               child: Opacity(
                 opacity: 0.3,
-                child: Text(text, style: Theme.of(context).textTheme.bodyMedium),
+                child: Text(
+                  text,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
           ),
@@ -99,37 +104,41 @@ class _ProfileIntroState extends State<ProfileIntro> with TickerProviderStateMix
       backgroundText(const EdgeInsets.only(top: 400, right: 450), 'GitHub', 0.5),
     ];
 
-    return Stack(
-      children: [
-        ...leftTopText,
-        ...rightTopText,
-        ...rightBottomText,
-        ...leftBottomText,
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AnimatedBuilder(
-              animation: _textController,
-              builder: (BuildContext context, Widget? child) {
-                return Transform.translate(offset: Offset(0, _text.value), child: child);
-              },
-              child: Text(
-                'Hello!\nI\'m 채종건',
-                textAlign: TextAlign.start,
-                style: Theme.of(context).textTheme.titleLarge,
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      child: Stack(
+        children: [
+          ...leftTopText,
+          ...rightTopText,
+          ...rightBottomText,
+          ...leftBottomText,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedBuilder(
+                animation: _textController,
+                builder: (BuildContext context, Widget? child) {
+                  return Transform.translate(offset: Offset(0, _text.value), child: child);
+                },
+                child: Text(
+                  'Hello!\nI\'m C0routine',
+                  textAlign: TextAlign.start,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
               ),
-            ),
-            ScaleTransition(
-              scale: _scale,
-              child: Divider(
-                thickness: 1,
-                color: AppColor.accent,
-                endIndent: AppStyle.widthPercent(context, 0.5),
+              ScaleTransition(
+                scale: _scale,
+                child: Divider(
+                  thickness: 1,
+                  color: AppColor.accent,
+                  endIndent: AppStyle.widthPercent(context, 0.5),
+                ),
               ),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
