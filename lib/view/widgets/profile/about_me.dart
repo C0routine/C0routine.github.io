@@ -39,10 +39,22 @@ class _ProfileAboutMeState extends State<ProfileAboutMe> with TickerProviderStat
     final useItemList = [
       {'name': 'Flutter', 'svg': 'flutter.svg'},
       {'name': 'React Native', 'svg': 'react.svg'},
+      {'name': 'Firebase', 'svg': 'firebase.svg'},
       {'name': 'Dart', 'svg': 'dart.svg'},
       {'name': 'Kotlin', 'svg': 'kotlin.svg'},
+      {'name': 'Java', 'svg': 'java.svg'},
       {'name': 'JavaScript', 'svg': 'javascript.svg'},
       {'name': 'TypeScript', 'svg': 'typescript.svg'},
+      {'name': 'Github', 'svg': 'github.svg'},
+      {'name': 'Slack', 'svg': 'slack.svg'},
+      {'name': 'Notion', 'svg': 'notion.svg'},
+      {'name': 'Figma', 'svg': 'figma.svg'},
+      {'name': 'Markdown', 'svg': 'markdown.svg'},
+      {'name': 'Vim', 'svg': 'vim.svg'},
+      {'name': 'Android Studio', 'svg': 'android_studio.svg'},
+      {'name': 'Xcode', 'svg': 'xcode.svg'},
+      {'name': 'VSCode', 'svg': 'vscode.svg'},
+      {'name': 'WebStorm', 'svg': 'webstorm.svg'},
     ];
 
     Widget useItem(String url, String text) {
@@ -81,6 +93,8 @@ class _ProfileAboutMeState extends State<ProfileAboutMe> with TickerProviderStat
                 style: Theme.of(context).textTheme.bodyMedium),
           ),
         ),
+        const SizedBox(height: 50),
+
         Text('Use', style: Theme.of(context).textTheme.titleLarge),
         Container(
           margin: AppStyle.gapAll,
