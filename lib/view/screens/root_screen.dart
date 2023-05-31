@@ -1,7 +1,7 @@
-import 'package:blog/utils/app_color.dart';
+import 'package:flutter/material.dart';
+
 import 'package:blog/view/screens/profile_screen.dart';
 import 'package:blog/view/screens/tech_screen.dart';
-import 'package:flutter/material.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({Key? key}) : super(key: key);
@@ -25,6 +25,7 @@ class _RootScreenState extends State<RootScreen> {
       body: Row(
         children: [
           NavigationRail(
+            minWidth: 80,
             // rail 확장
             extended: false,
             // icons 위치

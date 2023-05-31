@@ -15,11 +15,12 @@ class BlogApp extends StatefulWidget {
 class _BlogApp extends State<BlogApp> {
   @override
   Widget build(BuildContext context) {
-    final responsiveVM = context.watch<ResponsiveVM>();
+    final responsiveVM = context.read<ResponsiveVM>();
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         responsiveVM.extendChange(constraints.maxWidth);
+        print('${constraints.maxWidth} ${constraints.maxHeight}');
         return MaterialApp.router(
           /// TODO Support DarkTheme LightTheme
           theme: AppTheme.responsive(responsiveVM.extend),

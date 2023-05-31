@@ -50,12 +50,13 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    print('Render Profile Screen');
     return Stack(
       children: [
         ListView(
           controller: scrollController,
           children: [
-            ProfileIntro(),
+            const ProfileIntro(),
             ProfileAboutMe(
               bodyController: _aboutMeBodyController,
               headerController: _aboutMeHeaderController,

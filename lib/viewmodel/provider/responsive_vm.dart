@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 /// Responsive app, mobile, desktop mode 인지 확인하기 위한 View Model
 /// [_extend] true = Desktop, false = Mobile

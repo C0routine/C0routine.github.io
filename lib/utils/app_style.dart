@@ -14,6 +14,11 @@ class AppStyle {
     return MediaQuery.of(context).size.width > 600;
   }
 
+  /// App Screen Size
+  static Size getSize(BuildContext context){
+    return MediaQuery.of(context).size;
+  }
+
   /// width 의 퍼센트 사이즈 [size] 0.0 ~ 1.0 값만 사용.
   static double widthPercent(BuildContext context, double size) {
     if(size < 0.0 || size > 1.0) return 0.0;
@@ -28,5 +33,5 @@ class AppStyle {
   static const EdgeInsets gapHorizontal = EdgeInsets.symmetric(horizontal: 20);
   static const EdgeInsets gapAll = EdgeInsets.all(20);
 
-  static const borderRadius = Border();
+  static final BorderRadius borderRadius = BorderRadius.circular(16);
 }
