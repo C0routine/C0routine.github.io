@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:blog/view/widgets/profile/about_me.dart';
 import 'package:blog/view/widgets/profile/intro.dart';
+import 'package:blog/view/widgets/profile/about_me.dart';
+import 'package:blog/view/widgets/profile/use.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -13,36 +14,52 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateMixin {
   final scrollController = ScrollController();
 
-  late AnimationController _aboutMeHeaderController;
+  late AnimationController _aboutMeTitleController;
   late AnimationController _aboutMeBodyController;
+  late AnimationController _useTitleController;
+  late AnimationController _useBodyController;
 
+  // Scroll Offset Check and Start Animation
+  void scrollOffsetCheck(double scrollOffset, AnimationController animationController) {
+    if (scrollController.offset > scrollOffset) {
+      animationController.forward();
+    }
+  }
+
+  // Scroll Listener Function
   void _checkScrollAnimation() {
-    print(scrollController.offset);
-    // AboutMe Header Animation Control
-    if (scrollController.offset > 40 && _aboutMeHeaderController.status == AnimationStatus.dismissed) {
-      _aboutMeHeaderController.forward();
-    }
+    print('Current Scroll : ${scrollController.offset}');
 
-    // AboutMe Body Animation Control
-    if (scrollController.offset > 170 && _aboutMeBodyController.status == AnimationStatus.dismissed) {
-      _aboutMeBodyController.forward();
-    }
+    scrollOffsetCheck(70, _aboutMeTitleController);
+    scrollOffsetCheck(110, _aboutMeBodyController);
+    scrollOffsetCheck(380, _useTitleController);
+    scrollOffsetCheck(450, _useBodyController);
+  }
+
+  // animation controller 초기화 설정
+  AnimationController controllerInit(TickerProvider ticker, int milliseconds) {
+    return AnimationController(vsync: ticker, duration: Duration(milliseconds: milliseconds));
   }
 
   @override
   void initState() {
-    // animation controller
-    _aboutMeHeaderController = AnimationController(vsync: this, duration: const Duration(milliseconds: 2000));
-    _aboutMeBodyController = AnimationController(vsync: this, duration: const Duration(milliseconds: 1500));
+    super.initState();
+    _aboutMeTitleController = controllerInit(this, 2500);
+    _aboutMeBodyController = controllerInit(this, 2000);
+    _useTitleController = controllerInit(this, 2500);
+    _useBodyController = controllerInit(this, 2000);
+
     // scroll controller listener
     scrollController.addListener(_checkScrollAnimation);
-    super.initState();
   }
 
   @override
   void dispose() {
+    _aboutMeTitleController.dispose();
     _aboutMeBodyController.dispose();
-    _aboutMeHeaderController.dispose();
+    _useTitleController.dispose();
+    _useBodyController.dispose();
+
     scrollController.removeListener(_checkScrollAnimation);
     scrollController.dispose();
     super.dispose();
@@ -58,8 +75,13 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
           children: [
             const ProfileIntro(),
             ProfileAboutMe(
+              titleController: _aboutMeTitleController,
               bodyController: _aboutMeBodyController,
-              headerController: _aboutMeHeaderController,
+            ),
+            const SizedBox(height: 150),
+            ProfileUse(
+              titleController: _useTitleController,
+              bodyController: _useBodyController,
             ),
           ],
         ),
