@@ -16,11 +16,11 @@ jobs:
 
       - run: flutter pub get
       - run: flutter config --enable-web
-      - run: flutter build web --release
+      - run: flutter build web --web-renderer canvaskit --release
 #      - run: flutter build web --base-href "/${{ github.event.repository.name }}/"
 
-      - run: git config user.name C0routine
-      - run: git config user.email C0routine@github.com
+      - run: git config user.name github-actions
+      - run: git config user.email github-actions@github.com
       - run: git --work-tree build/web add --all
       - run: git commit -m "Automatic deployment by github-actions"
       - run: git push origin HEAD:gh_pages --force
