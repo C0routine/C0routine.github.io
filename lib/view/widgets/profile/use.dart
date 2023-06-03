@@ -20,7 +20,7 @@ class _ProfileUseState extends State<ProfileUse> with TickerProviderStateMixin {
 
   // animation value 에 controller 할당
   Animation<double> animationSetting(AnimationController controller) {
-    return Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: Curves.decelerate)).animate(controller);
+    return Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: Curves.easeOutQuint)).animate(controller);
   }
 
   @override
@@ -33,25 +33,26 @@ class _ProfileUseState extends State<ProfileUse> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    // TODO Web Release Svg Load 안되는 문제, webp 로 모두 변경 해야됨
     final useItemList = [
-      {'name': 'Flutter', 'svg': 'flutter.svg'},
-      {'name': 'React Native', 'svg': 'react.svg'},
-      {'name': 'Firebase', 'svg': 'firebase.svg'},
-      {'name': 'Dart', 'svg': 'dart.svg'},
-      {'name': 'Kotlin', 'svg': 'kotlin.svg'},
-      {'name': 'Java', 'svg': 'java.svg'},
-      {'name': 'JavaScript', 'svg': 'javascript.svg'},
-      {'name': 'TypeScript', 'svg': 'typescript.svg'},
-      {'name': 'Github', 'svg': 'github.svg'},
-      {'name': 'Slack', 'svg': 'slack.svg'},
-      {'name': 'Notion', 'svg': 'notion.svg'},
-      {'name': 'Figma', 'svg': 'figma.svg'},
-      {'name': 'Markdown', 'svg': 'markdown.svg'},
-      {'name': 'Vim', 'svg': 'vim.svg'},
-      {'name': 'Android Studio', 'svg': 'android_studio.svg'},
-      {'name': 'Xcode', 'svg': 'xcode.svg'},
-      {'name': 'VSCode', 'svg': 'vscode.svg'},
-      {'name': 'WebStorm', 'svg': 'webstorm.svg'},
+      {'name': 'Flutter', 'png': 'flutter.png'},
+      {'name': 'React Native', 'png': 'react.png'},
+      {'name': 'Firebase', 'png': 'firebase.png'},
+      {'name': 'Dart', 'png': 'dart.png'},
+      {'name': 'Kotlin', 'png': 'kotlin.png'},
+      {'name': 'Java', 'png': 'java.png'},
+      {'name': 'JavaScript', 'png': 'javascript.png'},
+      {'name': 'TypeScript', 'png': 'typescript.png'},
+      {'name': 'Github', 'png': 'github.png'},
+      {'name': 'Slack', 'png': 'slack.png'},
+      {'name': 'Notion', 'png': 'notion.png'},
+      {'name': 'Figma', 'png': 'figma.png'},
+      {'name': 'Markdown', 'png': 'markdown.png'},
+      {'name': 'Vim', 'png': 'vim.png'},
+      {'name': 'Android Studio', 'png': 'android_studio.png'},
+      {'name': 'Xcode', 'png': 'xcode.png'},
+      {'name': 'VSCode', 'png': 'vscode.png'},
+      {'name': 'WebStorm', 'png': 'webstorm.png'},
     ];
 
     Widget useItem(String url, String text) {
@@ -59,7 +60,7 @@ class _ProfileUseState extends State<ProfileUse> with TickerProviderStateMixin {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SvgPicture.asset('logo/$url', width: 50, height: 50),
+          Image.asset('assets/logo/$url', width: 50, height: 50, fit: BoxFit.cover,),
           const SizedBox(width: 10),
           Text(text, style: Theme.of(context).textTheme.titleSmall),
         ],
@@ -89,7 +90,7 @@ class _ProfileUseState extends State<ProfileUse> with TickerProviderStateMixin {
               alignment: WrapAlignment.start,
               children: [
                 ...useItemList.map((e) {
-                  return useItem(e['svg']!, e['name']!);
+                  return useItem(e['png']!, e['name']!);
                 }),
               ],
             ),

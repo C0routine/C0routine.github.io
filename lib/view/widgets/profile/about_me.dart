@@ -19,7 +19,7 @@ class _ProfileAboutMeState extends State<ProfileAboutMe> with TickerProviderStat
 
   // animation value 에 controller 할당
   Animation<double> animationSetting(AnimationController controller) {
-    return Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: Curves.decelerate)).animate(controller);
+    return Tween(begin: 0.0, end: 1.0).chain(CurveTween(curve: Curves.easeOutQuint)).animate(controller);
   }
 
   @override

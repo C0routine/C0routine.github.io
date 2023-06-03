@@ -32,8 +32,8 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
 
     scrollOffsetCheck(70, _aboutMeTitleController);
     scrollOffsetCheck(110, _aboutMeBodyController);
-    scrollOffsetCheck(380, _useTitleController);
-    scrollOffsetCheck(450, _useBodyController);
+    scrollOffsetCheck(330, _useTitleController);
+    scrollOffsetCheck(400, _useBodyController);
   }
 
   // animation controller 초기화 설정
@@ -70,21 +70,38 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
     print('Render Profile Screen');
     return Stack(
       children: [
-        ListView(
+        SingleChildScrollView(
           controller: scrollController,
-          children: [
-            const ProfileIntro(),
-            ProfileAboutMe(
-              titleController: _aboutMeTitleController,
-              bodyController: _aboutMeBodyController,
-            ),
-            const SizedBox(height: 150),
-            ProfileUse(
-              titleController: _useTitleController,
-              bodyController: _useBodyController,
-            ),
-          ],
+          child: Column(
+            children: [
+              const ProfileIntro(),
+              ProfileAboutMe(
+                titleController: _aboutMeTitleController,
+                bodyController: _aboutMeBodyController,
+              ),
+              const SizedBox(height: 100),
+              ProfileUse(
+                titleController: _useTitleController,
+                bodyController: _useBodyController,
+              ),
+            ],
+          ),
         ),
+        // ListView(
+        //   controller: scrollController,
+        //   children: [
+        //     const ProfileIntro(),
+        //     ProfileAboutMe(
+        //       titleController: _aboutMeTitleController,
+        //       bodyController: _aboutMeBodyController,
+        //     ),
+        //     const SizedBox(height: 100),
+        //     ProfileUse(
+        //       titleController: _useTitleController,
+        //       bodyController: _useBodyController,
+        //     ),
+        //   ],
+        // ),
       ],
     );
   }
