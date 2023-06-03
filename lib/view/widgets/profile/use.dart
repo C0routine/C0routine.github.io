@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:blog/utils/app_color.dart';
 import 'package:blog/utils/app_style.dart';
@@ -35,24 +34,24 @@ class _ProfileUseState extends State<ProfileUse> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     // TODO Web Release Svg Load 안되는 문제, webp 로 모두 변경 해야됨
     final useItemList = [
-      {'name': 'Flutter', 'png': 'flutter.png'},
-      {'name': 'React Native', 'png': 'react.png'},
-      {'name': 'Firebase', 'png': 'firebase.png'},
-      {'name': 'Dart', 'png': 'dart.png'},
-      {'name': 'Kotlin', 'png': 'kotlin.png'},
-      {'name': 'Java', 'png': 'java.png'},
-      {'name': 'JavaScript', 'png': 'javascript.png'},
-      {'name': 'TypeScript', 'png': 'typescript.png'},
-      {'name': 'Github', 'png': 'github.png'},
-      {'name': 'Slack', 'png': 'slack.png'},
-      {'name': 'Notion', 'png': 'notion.png'},
-      {'name': 'Figma', 'png': 'figma.png'},
-      {'name': 'Markdown', 'png': 'markdown.png'},
-      {'name': 'Vim', 'png': 'vim.png'},
-      {'name': 'Android Studio', 'png': 'android_studio.png'},
-      {'name': 'Xcode', 'png': 'xcode.png'},
-      {'name': 'VSCode', 'png': 'vscode.png'},
-      {'name': 'WebStorm', 'png': 'webstorm.png'},
+      {'name': 'Flutter', 'image': 'flutter.webp'},
+      {'name': 'React Native', 'image': 'react.webp'},
+      {'name': 'Firebase', 'image': 'firebase.webp'},
+      {'name': 'Dart', 'image': 'dart.webp'},
+      {'name': 'Kotlin', 'image': 'kotlin.webp'},
+      {'name': 'Java', 'image': 'java.webp'},
+      {'name': 'JavaScript', 'image': 'javascript.webp'},
+      {'name': 'TypeScript', 'image': 'typescript.webp'},
+      {'name': 'Github', 'image': 'github.webp'},
+      {'name': 'Slack', 'image': 'slack.webp'},
+      {'name': 'Notion', 'image': 'notion.webp'},
+      {'name': 'Figma', 'image': 'figma.webp'},
+      {'name': 'Markdown', 'image': 'markdown.webp'},
+      {'name': 'Vim', 'image': 'vim.webp'},
+      {'name': 'Android Studio', 'image': 'android_studio.webp'},
+      {'name': 'Xcode', 'image': 'xcode.webp'},
+      {'name': 'VSCode', 'image': 'vscode.webp'},
+      {'name': 'WebStorm', 'image': 'webstorm.webp'},
     ];
 
     Widget useItem(String url, String text) {
@@ -60,7 +59,7 @@ class _ProfileUseState extends State<ProfileUse> with TickerProviderStateMixin {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset('assets/logo/$url', width: 50, height: 50, fit: BoxFit.cover,),
+          Image.asset('/logo/$url', width: 50, height: 50, fit: BoxFit.cover,),
           const SizedBox(width: 10),
           Text(text, style: Theme.of(context).textTheme.titleSmall),
         ],
@@ -90,7 +89,7 @@ class _ProfileUseState extends State<ProfileUse> with TickerProviderStateMixin {
               alignment: WrapAlignment.start,
               children: [
                 ...useItemList.map((e) {
-                  return useItem(e['png']!, e['name']!);
+                  return useItem(e['image']!, e['name']!);
                 }),
               ],
             ),
