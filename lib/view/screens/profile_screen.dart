@@ -1,3 +1,4 @@
+import 'package:blog/view/widgets/profile/project.dart';
 import 'package:flutter/material.dart';
 
 import 'package:blog/view/widgets/profile/intro.dart';
@@ -14,10 +15,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateMixin {
   final scrollController = ScrollController();
 
-  late AnimationController _aboutMeTitleController;
-  late AnimationController _aboutMeBodyController;
-  late AnimationController _useTitleController;
-  late AnimationController _useBodyController;
+  late AnimationController _aboutMeController;
+  late AnimationController _useController;
 
   // Scroll Offset Check and Start Animation
   void scrollOffsetCheck(double scrollOffset, AnimationController animationController) {
@@ -30,10 +29,8 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
   void _checkScrollAnimation() {
     print('Current Scroll : ${scrollController.offset}');
 
-    scrollOffsetCheck(70, _aboutMeTitleController);
-    scrollOffsetCheck(110, _aboutMeBodyController);
-    scrollOffsetCheck(330, _useTitleController);
-    scrollOffsetCheck(400, _useBodyController);
+    scrollOffsetCheck(70, _aboutMeController);
+    scrollOffsetCheck(330, _useController);
   }
 
   // animation controller 초기화 설정
@@ -44,10 +41,8 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
   @override
   void initState() {
     super.initState();
-    _aboutMeTitleController = controllerInit(this, 2500);
-    _aboutMeBodyController = controllerInit(this, 2000);
-    _useTitleController = controllerInit(this, 2500);
-    _useBodyController = controllerInit(this, 2000);
+    _aboutMeController = controllerInit(this, 1600);
+    _useController = controllerInit(this, 1600);
 
     // scroll controller listener
     scrollController.addListener(_checkScrollAnimation);
@@ -55,10 +50,8 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
 
   @override
   void dispose() {
-    _aboutMeTitleController.dispose();
-    _aboutMeBodyController.dispose();
-    _useTitleController.dispose();
-    _useBodyController.dispose();
+    _aboutMeController.dispose();
+    _useController.dispose();
 
     scrollController.removeListener(_checkScrollAnimation);
     scrollController.dispose();
@@ -75,33 +68,14 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
           child: Column(
             children: [
               const ProfileIntro(),
-              ProfileAboutMe(
-                titleController: _aboutMeTitleController,
-                bodyController: _aboutMeBodyController,
-              ),
+              ProfileAboutMe(aboutMeController: _aboutMeController),
               const SizedBox(height: 100),
-              ProfileUse(
-                titleController: _useTitleController,
-                bodyController: _useBodyController,
-              ),
+              ProfileUse(useController: _useController),
+              const SizedBox(height: 100),
+              ProfileProject(),
             ],
           ),
         ),
-        // ListView(
-        //   controller: scrollController,
-        //   children: [
-        //     const ProfileIntro(),
-        //     ProfileAboutMe(
-        //       titleController: _aboutMeTitleController,
-        //       bodyController: _aboutMeBodyController,
-        //     ),
-        //     const SizedBox(height: 100),
-        //     ProfileUse(
-        //       titleController: _useTitleController,
-        //       bodyController: _useBodyController,
-        //     ),
-        //   ],
-        // ),
       ],
     );
   }

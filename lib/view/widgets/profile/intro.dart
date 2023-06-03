@@ -20,7 +20,7 @@ class _ProfileIntroState extends State<ProfileIntro> with TickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    _textController = AnimationController(vsync: this, duration: const Duration(milliseconds: 2200));
+    _textController = AnimationController(vsync: this, duration: const Duration(milliseconds: 2000));
     _text = Tween(begin: 60.0, end: 0.0)
         .chain(
           CurveTween(curve: Curves.easeOutQuint),
@@ -28,7 +28,7 @@ class _ProfileIntroState extends State<ProfileIntro> with TickerProviderStateMix
         .animate(_textController);
     _textController.forward();
 
-    _scaleController = AnimationController(vsync: this, duration: const Duration(milliseconds: 1700));
+    _scaleController = AnimationController(vsync: this, duration: const Duration(milliseconds: 1600));
     _scale = Tween(begin: 60.0, end: 1.0)
         .chain(
           CurveTween(curve: Curves.easeOutQuint),
