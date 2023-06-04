@@ -56,7 +56,7 @@ class _ProfileUseState extends State<ProfileUse> with TickerProviderStateMixin {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(
-            '/logo/$url',
+            'assets/logo/$url',
             width: 64,
             height: 64,
             fit: BoxFit.cover,

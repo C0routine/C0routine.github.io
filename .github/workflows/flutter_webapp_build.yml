@@ -16,7 +16,7 @@ jobs:
 
       - run: flutter pub get
       - run: flutter config --enable-web
-      - run: flutter build web --release
+      - run: flutter build web --web-renderer html --release
 #      - run: flutter build web --base-href "/${{ github.event.repository.name }}/"
 
       - run: git config user.name github-actions
