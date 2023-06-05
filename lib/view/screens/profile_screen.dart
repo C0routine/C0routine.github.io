@@ -17,6 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
 
   late AnimationController _aboutMeController;
   late AnimationController _useController;
+  late AnimationController _projectController;
 
   // Scroll Offset Check and Start Animation
   void scrollOffsetCheck(double scrollOffset, AnimationController animationController) {
@@ -31,6 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
 
     scrollOffsetCheck(70, _aboutMeController);
     scrollOffsetCheck(330, _useController);
+    scrollOffsetCheck(950, _projectController);
   }
 
   // animation controller 초기화 설정
@@ -43,6 +45,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
     super.initState();
     _aboutMeController = controllerInit(this, 1600);
     _useController = controllerInit(this, 1600);
+    _projectController = controllerInit(this, 1600);
 
     // scroll controller listener
     scrollController.addListener(_checkScrollAnimation);
@@ -52,6 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
   void dispose() {
     _aboutMeController.dispose();
     _useController.dispose();
+    _projectController.dispose();
 
     scrollController.removeListener(_checkScrollAnimation);
     scrollController.dispose();
@@ -72,7 +76,8 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
               const SizedBox(height: 100),
               ProfileUse(useController: _useController),
               const SizedBox(height: 100),
-              ProfileProject(),
+              ProfileProject(projectController: _projectController),
+              const SizedBox(height: 100),
             ],
           ),
         ),
