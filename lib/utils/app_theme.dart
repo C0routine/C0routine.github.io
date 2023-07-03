@@ -29,7 +29,7 @@ class AppTheme {
     ),
     // 소제목
     titleSmall: TextStyle(
-      fontSize: 20,
+      fontSize: 23,
       color: AppColor.text,
       fontWeight: FontWeight.w700,
     ),
@@ -48,9 +48,15 @@ class AppTheme {
       color: AppColor.text,
       fontWeight: FontWeight.w900,
     ),
-
+    // 소제목
+    titleSmall: TextStyle(
+      fontSize: 18,
+      color: AppColor.text,
+      fontWeight: FontWeight.w700,
+    ),
+    // 일반 크기
     bodyMedium: TextStyle(
-      fontSize: 12,
+      fontSize: 15,
       color: AppColor.text,
       fontWeight: FontWeight.w400,
     ),

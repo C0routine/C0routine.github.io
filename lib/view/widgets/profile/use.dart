@@ -51,9 +51,8 @@ class _ProfileUseState extends State<ProfileUse> with TickerProviderStateMixin {
     ];
 
     Widget useItem(String url, String text) {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      return Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
         children: [
           Image.asset(
             'assets/logo/$url',

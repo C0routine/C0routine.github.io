@@ -16,7 +16,7 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     List<Widget> screenList = [
-      Container(color: Colors.red),
+      const TechScreen(),
       const ProfileScreen(),
       const TechScreen(),
     ];

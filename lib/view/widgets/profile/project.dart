@@ -1,3 +1,4 @@
+import 'package:blog/utils/app_color.dart';
 import 'package:blog/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
@@ -26,21 +27,26 @@ class _ProfileProjectState extends State<ProfileProject> {
 
   Widget projectImage() {
     return Container(
-      margin: AppStyle.gapVertical,
+      margin: AppStyle.gapAll,
+      padding: AppStyle.gapAll,
+      decoration: BoxDecoration(
+        color: AppColor.backgroundSub,
+        borderRadius: AppStyle.borderRadius,
+      ),
       child: Wrap(
         spacing: 20,
         runSpacing: 20,
         children: [
           Image.asset(
             'assets/project/hycharge_1.webp',
-            width: 300,
-            height: 750,
+            width: 250,
+            // height: 541,
             fit: BoxFit.cover,
           ),
           Image.asset(
             'assets/project/hycharge_2.webp',
-            width: 300,
-            height: 750,
+            width: 250,
+            // height: 541,
             fit: BoxFit.cover,
           ),
         ],
@@ -57,10 +63,9 @@ class _ProfileProjectState extends State<ProfileProject> {
             opacity: _opacity,
             child: Text('Project', style: Theme.of(context).textTheme.titleLarge),
           ),
-
-          Container(
-            child: projectImage(),
-          ),
+          const SizedBox(height: 20),
+          Text('실시간 수소차 충전정보 서비스를 제공하는 앱', style: Theme.of(context).textTheme.bodyMedium),
+          projectImage(),
         ],
       ),
     );
