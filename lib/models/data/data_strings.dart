@@ -2,8 +2,8 @@
 class DataStrings {
   /// Navigation Header Menu Strings
   static const List<String> navigationMenu = [
-    // 'HOME',
+    'HOME',
     'PORTFOLIO',
-    // 'BLOG',
+    'BLOG',
   ];
 }

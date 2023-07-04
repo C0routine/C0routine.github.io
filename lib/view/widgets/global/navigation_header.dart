@@ -1,11 +1,9 @@
-import 'package:blog/models/data/data_strings.dart';
-import 'package:blog/models/services/data.dart';
 import 'package:flutter/material.dart';
 
 import 'package:blog/utils/app_color.dart';
 import 'package:blog/utils/app_style.dart';
 import 'package:blog/utils/screen_case.dart';
-
+import 'package:blog/models/data/data_strings.dart';
 import 'package:blog/viewmodel/global/navigation_header_vm.dart';
 
 class NavigationHeaders extends StatelessWidget {
@@ -15,21 +13,6 @@ class NavigationHeaders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> navigationMenu = ['HOME', ''];
-
-    headerLogo() {
-      return GestureDetector(
-        onTap: () {
-          // TODO GoRouter Setting
-          print('Go Home');
-        },
-        child: SelectableText(
-          'C0routine',
-          style: Theme.of(context).textTheme.titleSmall,
-        ),
-      );
-    }
-
     // Mobile Header
     mobileHeader() {
       return Row(
@@ -52,18 +35,34 @@ class NavigationHeaders extends StatelessWidget {
 
     // Desktop, Tablet Header
     otherHeader() {
-      return Row(
-        // mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text('C0routine'),
-          ...DataStrings.navigationMenu.map((menu) {
-            return Text(
-              menu,
-              style: Theme.of(context).textTheme.titleSmall,
-            );
-          }),
-        ],
+      return Padding(
+        padding: AppStyle.gapAll,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // TODO Blog Icon
+            const Icon(Icons.home, size: AppStyle.iconSize, color: AppColor.icons),
+
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ...DataStrings.navigationMenu.map((menu) {
+                    return GestureDetector(
+                      onTap: () => NavigationHeaderVM.navigationName(menu, context),
+                      child: Padding(
+                        padding: AppStyle.gapHorizontal,
+                        child: Text(menu, style: Theme.of(context).textTheme.titleSmall),
+                      ),
+                    );
+                  }),
+                ],
+              ),
+            ),
+          ],
+        ),
       );
     }
 

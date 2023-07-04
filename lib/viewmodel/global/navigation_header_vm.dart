@@ -12,10 +12,9 @@ class NavigationHeaderVM {
     Navigator.of(context).pop();
   }
 
-  // Close Drawer & Navigation Name
+  // Navigation for Name location
   static void navigationName(String name, BuildContext context){
     name = '/${name.toLowerCase()}';
-    context.pop();
 
     // tap 한 navigation name 과 현재 위치가 다를 경우 이동
     if(name != ModalRoute.of(context)!.settings.name) {
