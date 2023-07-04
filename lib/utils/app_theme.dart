@@ -8,6 +8,9 @@ class AppTheme {
       useMaterial3: true,
       textTheme: textTheme,
       scaffoldBackgroundColor: AppColor.background,
+      drawerTheme: DrawerThemeData(
+        backgroundColor: AppColor.backgroundSub,
+      ),
     );
   }
 

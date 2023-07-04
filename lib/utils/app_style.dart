@@ -25,13 +25,18 @@ class AppStyle {
     return MediaQuery.of(context).size.width * size;
   }
 
-  static const EdgeInsets gapTop = EdgeInsets.only(top: 20);
   static const EdgeInsets gapBottom = EdgeInsets.only(bottom: 20);
   static const EdgeInsets gapLeft = EdgeInsets.only(left: 20);
   static const EdgeInsets gapRight = EdgeInsets.only(right: 20);
   static const EdgeInsets gapVertical = EdgeInsets.symmetric(vertical: 20);
   static const EdgeInsets gapHorizontal = EdgeInsets.symmetric(horizontal: 20);
-  static const EdgeInsets gapAll = EdgeInsets.all(20);
+
+  static const EdgeInsets gapAll = EdgeInsets.all(16);
+  static const EdgeInsets gapTop = EdgeInsets.only(top: 16);
+
+  // static const EdgeInsets
+
+  static const double iconSize = 26;
 
   static final BorderRadius borderRadius = BorderRadius.circular(16);
 }
