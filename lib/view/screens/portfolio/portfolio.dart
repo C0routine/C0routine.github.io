@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:blog/view/widgets/portfolio/portfolio_intro.dart';
+import 'package:blog/view/widgets/portfolio/portfolio_aboutMe.dart';
 
 class Portfolio extends StatefulWidget {
   const Portfolio({super.key});
@@ -15,13 +17,12 @@ class _PortfolioState extends State<Portfolio> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              PortfolioIntro(),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            PortfolioIntro(),
+            PortfolioAboutMe(),
+          ],
         ),
       ),
     );

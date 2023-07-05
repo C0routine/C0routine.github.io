@@ -39,8 +39,8 @@ class AppStyle {
   /// Basic Border Radius
   static final BorderRadius borderRadius = BorderRadius.circular(16);
 
-  /// Basic Big(Title) Text Style
-  static TextStyle bigTitleText(double size) {
+  /// Basic Title Text Style
+  static TextStyle titleText(double size) {
     return TextStyle(
       fontSize: size,
       color: AppColor.textWhite,
@@ -53,7 +53,7 @@ class AppStyle {
     return TextStyle(
       fontSize: size,
       color: AppColor.textWhite,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w400,
     );
   }
 }

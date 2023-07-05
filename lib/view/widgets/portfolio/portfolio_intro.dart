@@ -17,7 +17,7 @@ class _PortfolioIntroState extends State<PortfolioIntro> {
   Widget build(BuildContext context) {
     // mode 0: mobile, 1:tablet, 2:desktop
     introTitle(int mode) => Text(DataStrings.introTitle,
-        style: AppStyle.bigTitleText(mode == 0
+        style: AppStyle.titleText(mode == 0
             ? AppStyle.mobileSize(65, context)
             : mode == 1
                 ? 85
@@ -46,7 +46,7 @@ class _PortfolioIntroState extends State<PortfolioIntro> {
                           color: AppColor.backgroundWhite,
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        height: 7,
+                        height: AppStyle.mobileSize(7, context),
                         width: value,
                       );
                     },
@@ -59,18 +59,12 @@ class _PortfolioIntroState extends State<PortfolioIntro> {
       );
     }
 
-    mobileIntro() => introBuild(0);
-
-    tabletIntro() => introBuild(1);
-
-    desktopIntro() => introBuild(2);
-
     return SizedBox(
       width: double.infinity,
       child: ScreenCase(
-        mobile: mobileIntro(),
-        tablet: tabletIntro(),
-        desktop: desktopIntro(),
+        mobile: introBuild(0),
+        tablet: introBuild(1),
+        desktop: introBuild(2),
       ),
     );
   }
