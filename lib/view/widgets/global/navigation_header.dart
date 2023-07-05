@@ -45,19 +45,19 @@ class NavigationHeaders extends StatelessWidget {
             // TODO Blog Icon
             const Icon(Icons.home, size: AppStyle.iconSize, color: AppColor.icons),
 
-            Container(
+            SizedBox(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ...DataStrings.navigationMenu.map((menu) {
-                    return GestureDetector(
-                      onTap: () => NavigationHeaderVM.navigationName(menu, context),
-                      child: Padding(
-                        padding: AppStyle.gapHorizontal,
-                        child: Text(menu, style: Theme.of(context).textTheme.titleSmall),
-                      ),
-                    );
-                  }),
+                  // ...DataStrings.navigationMenu.map((menu) {
+                  //   return GestureDetector(
+                  //     onTap: () => NavigationHeaderVM.navigationName(menu, context),
+                  //     child: Padding(
+                  //       padding: AppStyle.gapHorizontal,
+                  //       child: Text(menu, style: Theme.of(context).textTheme.titleMedium),
+                  //     ),
+                  //   );
+                  // }),
                 ],
               ),
             ),
@@ -66,7 +66,8 @@ class NavigationHeaders extends StatelessWidget {
       );
     }
 
-    return Container(
+    return SizedBox(
+      width: double.infinity,
       child: ScreenCase(
         mobile: mobileHeader(),
         tablet: otherHeader(),

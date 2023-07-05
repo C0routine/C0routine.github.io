@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:blog/utils/app_color.dart';
 
+/// App 에서 사용하는 Style 정의
 class AppStyle {
   static final AppStyle _appStyle = AppStyle._init();
 
@@ -9,34 +11,49 @@ class AppStyle {
     return _appStyle;
   }
 
-  /// Desktop 상태인지 확인
-  static bool isDesktop(BuildContext context) {
-    return MediaQuery.of(context).size.width > 600;
-  }
-
   /// App Screen Size
-  static Size getSize(BuildContext context){
+  static Size getSize(BuildContext context) {
     return MediaQuery.of(context).size;
   }
 
-  /// width 의 퍼센트 사이즈 [size] 0.0 ~ 1.0 값만 사용.
-  static double widthPercent(BuildContext context, double size) {
-    if(size < 0.0 || size > 1.0) return 0.0;
-    return MediaQuery.of(context).size.width * size;
+  /// Mobile 화면 대응
+  static double mobileSize(double size, context) {
+    if (getSize(context).width < 500) {
+      return getSize(context).width / 750 * size;
+    }
+    return size;
   }
 
-  static const EdgeInsets gapBottom = EdgeInsets.only(bottom: 20);
-  static const EdgeInsets gapLeft = EdgeInsets.only(left: 20);
-  static const EdgeInsets gapRight = EdgeInsets.only(right: 20);
-  static const EdgeInsets gapVertical = EdgeInsets.symmetric(vertical: 20);
-
-  static const EdgeInsets gapAll = EdgeInsets.all(16);
-  static const EdgeInsets gapTop = EdgeInsets.only(top: 16);
-  static const EdgeInsets gapHorizontal = EdgeInsets.symmetric(horizontal: 16);
-
-  // static const EdgeInsets
-
+  /// Basic Size
   static const double iconSize = 26;
 
+  /// Basic Padding, Margin
+  static const EdgeInsets gapAll = EdgeInsets.all(16);
+  static const EdgeInsets gapTop = EdgeInsets.only(top: 16);
+  static const EdgeInsets gapLeft = EdgeInsets.only(left: 16);
+  static const EdgeInsets gapRight = EdgeInsets.only(right: 16);
+  static const EdgeInsets gapBottom = EdgeInsets.only(bottom: 16);
+  static const EdgeInsets gapVertical = EdgeInsets.symmetric(vertical: 16);
+  static const EdgeInsets gapHorizontal = EdgeInsets.symmetric(horizontal: 16);
+
+  /// Basic Border Radius
   static final BorderRadius borderRadius = BorderRadius.circular(16);
+
+  /// Basic Big(Title) Text Style
+  static TextStyle bigTitleText(double size) {
+    return TextStyle(
+      fontSize: size,
+      color: AppColor.textWhite,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  /// Basic Normal Text Style
+  static TextStyle normalText(double size) {
+    return TextStyle(
+      fontSize: size,
+      color: AppColor.textWhite,
+      fontWeight: FontWeight.w500,
+    );
+  }
 }

@@ -8,28 +8,30 @@ class AppTheme {
       useMaterial3: true,
       textTheme: textTheme,
       scaffoldBackgroundColor: AppColor.background,
-      drawerTheme: DrawerThemeData(
-        backgroundColor: AppColor.backgroundSub,
+      drawerTheme: const DrawerThemeData(
+        backgroundColor: AppColor.background,
       ),
     );
   }
 
   static const TextTheme textTheme = TextTheme(
-    // UI Text
     titleLarge: TextStyle(
-      fontSize: 35,
-      color: AppColor.text,
+      fontSize: 100,
+      color: AppColor.textWhite,
       fontWeight: FontWeight.w900,
     ),
-    // 소제목
-    titleSmall: TextStyle(
-      fontSize: 25,
+    titleMedium: TextStyle(
+      fontSize: 18,
       color: AppColor.text,
       fontWeight: FontWeight.w700,
     ),
-    // 일반 크기
+    titleSmall: TextStyle(
+      fontSize: 13,
+      color: AppColor.text,
+      fontWeight: FontWeight.w600,
+    ),
     bodyMedium: TextStyle(
-      fontSize: 20,
+      fontSize: 14,
       color: AppColor.text,
       fontWeight: FontWeight.w400,
     ),

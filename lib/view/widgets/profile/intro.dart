@@ -127,14 +127,14 @@ class _ProfileIntroState extends State<ProfileIntro> with TickerProviderStateMix
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
-              ScaleTransition(
-                scale: _scale,
-                child: Divider(
-                  thickness: 1,
-                  color: AppColor.accent,
-                  endIndent: AppStyle.widthPercent(context, 0.5),
-                ),
-              ),
+              // ScaleTransition(
+              //   scale: _scale,
+              //   child: Divider(
+              //     thickness: 1,
+              //     color: AppColor.accent,
+              //     endIndent: AppStyle.widthPercent(context, 0.5),
+              //   ),
+              // ),
             ],
           ),
         ],
