@@ -86,7 +86,6 @@ class _PortfolioAboutMeState extends State<PortfolioAboutMe> {
       return ClipRRect(
         child: Container(
           color: AppColor.backgroundWhite,
-          height: AppStyle.getSize(context).height,
           child: mode != 0
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -136,8 +135,11 @@ class _PortfolioAboutMeState extends State<PortfolioAboutMe> {
       );
     }
 
-    return SizedBox(
-      width: double.infinity,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minWidth: double.infinity,
+        minHeight: AppStyle.getSize(context).height,
+      ),
       child: ScreenCase(
         mobile: aboutMeBuild(0),
         tablet: aboutMeBuild(1),

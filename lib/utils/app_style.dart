@@ -19,7 +19,7 @@ class AppStyle {
   /// Mobile 화면 대응
   static double mobileSize(double size, context) {
     if (getSize(context).width < 500) {
-      return getSize(context).width / 750 * size;
+      return getSize(context).width / 500 * size;
     }
     return size;
   }

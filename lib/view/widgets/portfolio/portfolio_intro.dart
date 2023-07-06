@@ -27,40 +27,35 @@ class _PortfolioIntroState extends State<PortfolioIntro> {
       return Container(
         color: AppColor.backgroundBlack,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: AppStyle.getSize(context).height,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(child: introTitle(mode)),
-                  TweenAnimationBuilder(
-                    tween: Tween(begin: 0.0, end: (AppStyle.getSize(context).width / 2)),
-                    curve: Curves.elasticOut,
-                    duration: const Duration(milliseconds: 2600),
-                    builder: (BuildContext context, double value, Widget? child) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: AppColor.backgroundWhite,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        height: AppStyle.mobileSize(7, context),
-                        width: value,
-                      );
-                    },
+            Center(child: introTitle(mode)),
+            TweenAnimationBuilder(
+              tween: Tween(begin: 0.0, end: (AppStyle.getSize(context).width / 2)),
+              curve: Curves.elasticOut,
+              duration: const Duration(milliseconds: 2600),
+              builder: (BuildContext context, double value, Widget? child) {
+                return Container(
+                  decoration: BoxDecoration(
+                    color: AppColor.backgroundWhite,
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                ],
-              ),
+                  height: AppStyle.mobileSize(7, context),
+                  width: value,
+                );
+              },
             ),
           ],
         ),
       );
     }
 
-    return SizedBox(
-      width: double.infinity,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minWidth: double.infinity,
+        minHeight: AppStyle.getSize(context).height,
+      ),
       child: ScreenCase(
         mobile: introBuild(0),
         tablet: introBuild(1),
