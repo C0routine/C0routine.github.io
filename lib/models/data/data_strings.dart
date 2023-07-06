@@ -14,6 +14,7 @@ class DataStrings {
   /// AboutMe Career Strings
   static const String careerTitle = 'Career';
   static const String careerDate = '2021.07 ~ 2022.12 (1년 6개월)';
-  static const String careerBody1 = '스칼라데이터에서 React-Native 를 사용하여 모두의 충전 프론트 엔드 개발 업무를 담당(NFC Payment, Connected Car, '
-      'MyPage)';
+  static const String careerBody1 = '스칼라데이터에서 React-Native 를 사용하여 ';
+  static const String careerBody2 = '모두의 충전';
+  static const String careerBody3 = ' APP 개발 업무를 담당(NFC, QR 결제, Connected Car, MyPage 등) 하였습니다.';
 }

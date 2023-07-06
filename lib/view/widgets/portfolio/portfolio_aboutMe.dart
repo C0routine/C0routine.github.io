@@ -1,5 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:blog/utils/app_color.dart';
 import 'package:blog/utils/app_style.dart';
@@ -41,12 +43,49 @@ class _PortfolioAboutMeState extends State<PortfolioAboutMe> {
               DataStrings.aboutMeBody1,
               style: AppStyle.normalText(<double>[15, 20, 25][mode], false),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 10),
             Text(
               DataStrings.aboutMeBody2,
               style: AppStyle.normalText(<double>[15, 20, 25][mode], false),
             ),
-            const SizedBox(height: 15),
+
+            // career
+            const SizedBox(height: 50),
+            Text(
+              DataStrings.careerTitle,
+              style: AppStyle.titleText(<double>[25, 35, 45][mode], false),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              DataStrings.careerDate,
+              style: AppStyle.normalText(<double>[20, 25, 30][mode], false),
+            ),
+            const SizedBox(height: 10),
+            RichText(
+              text: TextSpan(
+                text: DataStrings.careerBody1,
+                style: AppStyle.normalText(<double>[15, 20, 25][mode], false),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: DataStrings.careerBody2,
+                    style: AppStyle.titleText(<double>[16, 21, 26][mode], false).copyWith(
+                      decoration: TextDecoration.underline,
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () async {
+                        final Uri url = Uri.parse('https://evmodu.kr/');
+                        if (await launchUrl(url)) {
+                          throw Exception('Could not launch $url');
+                        }
+                      },
+                  ),
+                  TextSpan(
+                    text: DataStrings.careerBody3,
+                    style: AppStyle.normalText(<double>[15, 20, 25][mode], false),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       );
@@ -62,6 +101,7 @@ class _PortfolioAboutMeState extends State<PortfolioAboutMe> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(flex: 1, child: aboutMeBody(mode)),
+                    const SizedBox(width: 40),
                     Expanded(
                       flex: 1,
                       child: Transform.rotate(

@@ -16,7 +16,7 @@ class ScreenCase extends StatelessWidget {
           return mobile;
         }
 
-        if (constraints.maxWidth < 1080) {
+        if (constraints.maxWidth < 1280) {
           return tablet;
         }
 

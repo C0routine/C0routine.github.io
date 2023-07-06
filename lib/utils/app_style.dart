@@ -18,8 +18,8 @@ class AppStyle {
 
   /// Responsive Mobile 화면 대응
   static double reactiveSize(double size, context) {
-    if (getSize(context).width < 700) {
-      return (getSize(context).width / 700 * size).ceilToDouble();
+    if (getSize(context).width < 720) {
+      return (getSize(context).width / 720 * size).ceilToDouble();
     }
     return size;
   }
