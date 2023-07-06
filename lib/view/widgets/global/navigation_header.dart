@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:blog/utils/app_color.dart';
 import 'package:blog/utils/app_style.dart';
-import 'package:blog/utils/screen_case.dart';
+import 'package:blog/view/widgets/global/screen_case.dart';
 import 'package:blog/models/data/data_strings.dart';
 import 'package:blog/viewmodel/global/navigation_header_vm.dart';
 

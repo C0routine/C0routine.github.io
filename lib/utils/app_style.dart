@@ -16,10 +16,10 @@ class AppStyle {
     return MediaQuery.of(context).size;
   }
 
-  /// Mobile 화면 대응
-  static double mobileSize(double size, context) {
-    if (getSize(context).width < 500) {
-      return getSize(context).width / 500 * size;
+  /// Responsive Mobile 화면 대응
+  static double reactiveSize(double size, context) {
+    if (getSize(context).width < 700) {
+      return (getSize(context).width / 700 * size).ceilToDouble();
     }
     return size;
   }
@@ -38,22 +38,25 @@ class AppStyle {
 
   /// Basic Border Radius
   static final BorderRadius borderRadius = BorderRadius.circular(16);
+  static final BorderRadius borderRadiusHard = BorderRadius.circular(48);
 
-  /// Basic Title Text Style
-  static TextStyle titleText(double size) {
+  /// Basic Title TextStyle
+  /// [size] FontSize, [white] fontColor white = true, dark = false
+  static TextStyle titleText(double size, bool white) {
     return TextStyle(
       fontSize: size,
-      color: AppColor.textWhite,
       fontWeight: FontWeight.w700,
+      color: white ? AppColor.textWhite : AppColor.textBlack,
     );
   }
 
-  /// Basic Normal Text Style
-  static TextStyle normalText(double size) {
+  /// Basic Normal TextStyle
+  /// [size] FontSize, [white] fontColor white = true, dark = false
+  static TextStyle normalText(double size, bool white) {
     return TextStyle(
       fontSize: size,
-      color: AppColor.textWhite,
       fontWeight: FontWeight.w400,
+      color: white ? AppColor.textWhite : AppColor.textBlack,
     );
   }
 }

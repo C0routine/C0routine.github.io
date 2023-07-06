@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// 현재 화면 크기에 맞게 UI Render
+/// 현재 화면 크기에(mobile, tablet, desktop) 맞게 UI Render
 class ScreenCase extends StatelessWidget {
   final Widget mobile;
   final Widget tablet;
@@ -12,7 +12,7 @@ class ScreenCase extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        if (constraints.maxWidth < 750) {
+        if (constraints.maxWidth < 720) {
           return mobile;
         }
 

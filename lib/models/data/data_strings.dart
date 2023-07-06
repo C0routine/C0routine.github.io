@@ -10,4 +10,10 @@ class DataStrings {
   static const String aboutMeTitle = 'About Me';
   static const String aboutMeBody1 = '사람들의 삶을 현재보다 편리하게 만들어줄 수 있는 서비스를 개발하고자 합니다.';
   static const String aboutMeBody2 = '현재는 Flutter 프론트엔드 개발을 추후에는 풀스택을 개발하고자 매진하고 있습니다.';
+
+  /// AboutMe Career Strings
+  static const String careerTitle = 'Career';
+  static const String careerDate = '2021.07 ~ 2022.12 (1년 6개월)';
+  static const String careerBody1 = '스칼라데이터에서 React-Native 를 사용하여 모두의 충전 프론트 엔드 개발 업무를 담당(NFC Payment, Connected Car, '
+      'MyPage)';
 }
