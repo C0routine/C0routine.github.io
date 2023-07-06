@@ -1,3 +1,4 @@
+import 'package:blog/view/widgets/portfolio/portfolio_project.dart';
 import 'package:flutter/material.dart';
 
 import 'package:blog/view/widgets/portfolio/portfolio_intro.dart';
@@ -17,11 +18,12 @@ class _PortfolioState extends State<Portfolio> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [
-            PortfolioIntro(),
+            // PortfolioIntro(),
             PortfolioAboutMe(),
+            PortfolioProject(),
           ],
         ),
       ),

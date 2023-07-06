@@ -73,10 +73,11 @@ class _PortfolioAboutMeState extends State<PortfolioAboutMe> {
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
-                        final Uri url = Uri.parse('https://evmodu.kr/');
-                        if (await launchUrl(url)) {
-                          throw Exception('Could not launch $url');
-                        }
+                        final Uri url = Uri.parse(DataStrings.careerUrl1);
+                        await launchUrl(url);
+                        // if (await launchUrl(url)) {
+                        //   throw Exception('Could not launch $url');
+                        // }
                       },
                   ),
                   TextSpan(
