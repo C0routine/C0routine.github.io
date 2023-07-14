@@ -25,19 +25,21 @@ class AppStyle {
   }
 
   /// Basic Size
+  static const double basic = 16;
+  static const double mediumSize = 32;
   static const double iconSize = 26;
 
   /// Basic Padding, Margin
-  static const EdgeInsets gapAll = EdgeInsets.all(16);
-  static const EdgeInsets gapTop = EdgeInsets.only(top: 16);
-  static const EdgeInsets gapLeft = EdgeInsets.only(left: 16);
-  static const EdgeInsets gapRight = EdgeInsets.only(right: 16);
-  static const EdgeInsets gapBottom = EdgeInsets.only(bottom: 16);
-  static const EdgeInsets gapVertical = EdgeInsets.symmetric(vertical: 16);
-  static const EdgeInsets gapHorizontal = EdgeInsets.symmetric(horizontal: 16);
+  static const EdgeInsets gapAll = EdgeInsets.all(basic);
+  static const EdgeInsets gapTop = EdgeInsets.only(top: basic);
+  static const EdgeInsets gapLeft = EdgeInsets.only(left: basic);
+  static const EdgeInsets gapRight = EdgeInsets.only(right: basic);
+  static const EdgeInsets gapBottom = EdgeInsets.only(bottom: basic);
+  static const EdgeInsets gapVertical = EdgeInsets.symmetric(vertical: basic);
+  static const EdgeInsets gapHorizontal = EdgeInsets.symmetric(horizontal: basic);
 
   /// Basic Border Radius
-  static final BorderRadius borderRadius = BorderRadius.circular(16);
+  static final BorderRadius borderRadius = BorderRadius.circular(basic);
   static final BorderRadius borderRadiusHard = BorderRadius.circular(48);
 
   /// Basic Title TextStyle
