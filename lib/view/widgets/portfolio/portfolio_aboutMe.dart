@@ -9,7 +9,9 @@ import 'package:blog/utils/app_widget.dart';
 import 'package:blog/models/data/data_strings.dart';
 
 class PortfolioAboutMe extends StatefulWidget {
-  const PortfolioAboutMe({super.key});
+  const PortfolioAboutMe({super.key, required this.aboutMeImageOpacity});
+
+  final double aboutMeImageOpacity;
 
   @override
   State<PortfolioAboutMe> createState() => _PortfolioAboutMeState();
@@ -109,9 +111,14 @@ class _PortfolioAboutMeState extends State<PortfolioAboutMe> {
                         angle: (math.pi / 3),
                         child: ClipRRect(
                           borderRadius: AppStyle.borderRadiusHard,
-                          child: Image.network(
-                            DataStrings.aboutMeImage,
-                            fit: BoxFit.cover,
+                          child: AnimatedOpacity(
+                            opacity: widget.aboutMeImageOpacity,
+                            duration: const Duration(milliseconds: 2600),
+                            curve: Curves.decelerate,
+                            child: Image.network(
+                              DataStrings.aboutMeImage,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
@@ -123,10 +130,15 @@ class _PortfolioAboutMeState extends State<PortfolioAboutMe> {
               : Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.network(
-                      DataStrings.aboutMeImage2,
-                      fit: BoxFit.cover,
-                      width: 450,
+                    AnimatedOpacity(
+                      opacity: widget.aboutMeImageOpacity,
+                      duration: const Duration(milliseconds: 2600),
+                      curve: Curves.decelerate,
+                      child: Image.network(
+                        DataStrings.aboutMeImage2,
+                        fit: BoxFit.cover,
+                        width: 450,
+                      ),
                     ),
                     const SizedBox(height: 20),
                     aboutMeBody(mode),

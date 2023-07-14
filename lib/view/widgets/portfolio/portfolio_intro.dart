@@ -12,7 +12,22 @@ class PortfolioIntro extends StatefulWidget {
   State<PortfolioIntro> createState() => _PortfolioIntroState();
 }
 
-class _PortfolioIntroState extends State<PortfolioIntro> {
+class _PortfolioIntroState extends State<PortfolioIntro> with TickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 2),
+    vsync: this,
+  )..forward();
+  late final Animation<double> _animation = CurvedAnimation(
+    parent: _controller,
+    curve: Curves.elasticOut,
+  );
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     introBuild(int mode) {
@@ -22,14 +37,17 @@ class _PortfolioIntroState extends State<PortfolioIntro> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: AppStyle.gapHorizontal,
-              child: Center(
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  child: Text(
-                    DataStrings.introTitle,
-                    style: AppStyle.titleText(<double>[65, 85, 100][mode], true),
+            ScaleTransition(
+              scale: _animation,
+              child: Padding(
+                padding: AppStyle.gapHorizontal,
+                child: Center(
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: Text(
+                      DataStrings.introTitle,
+                      style: AppStyle.titleText(<double>[65, 85, 100][mode], true),
+                    ),
                   ),
                 ),
               ),
