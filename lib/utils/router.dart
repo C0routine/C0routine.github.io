@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 
 import 'package:blog/view/screens/portfolio/portfolio.dart';
-import 'package:blog/view/screens/root_screen.dart';
+import 'package:blog/view/screens/tech/tech.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/portfolio',
@@ -11,8 +11,8 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const Portfolio(),
     ),
     GoRoute(
-      path: '/',
-      builder: (context, state) => const RootScreen(),
+      path: '/tech',
+      builder: (context, state) => const Tech(),
     ),
   ],
 );

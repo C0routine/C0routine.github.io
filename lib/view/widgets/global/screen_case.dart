@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// 현재 화면 크기 상태
+enum ScreenStatus {mobile, tablet, desktop}
+
 /// 현재 화면 크기에(mobile, tablet, desktop) 맞게 UI Render
 class ScreenCase extends StatelessWidget {
   final Widget mobile;

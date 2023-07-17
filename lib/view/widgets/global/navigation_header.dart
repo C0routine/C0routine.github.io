@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:blog/utils/app_color.dart';
 import 'package:blog/utils/app_style.dart';
-import 'package:blog/view/widgets/global/screen_case.dart';
 import 'package:blog/models/data/data_strings.dart';
-import 'package:blog/viewmodel/global/navigation_header_vm.dart';
+import 'package:blog/view/widgets/global/screen_case.dart';
 
 class NavigationHeaders extends StatelessWidget {
   const NavigationHeaders({super.key, required this.scaffoldKey});
@@ -19,7 +18,7 @@ class NavigationHeaders extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           GestureDetector(
-            onTap: () => NavigationHeaderVM.openEndDrawer(scaffoldKey),
+            // onTap: () => NavigationHeaderVM.openEndDrawer(scaffoldKey),
             child: const Padding(
               padding: AppStyle.gapAll,
               child: Icon(
@@ -66,12 +65,38 @@ class NavigationHeaders extends StatelessWidget {
       );
     }
 
-    return SizedBox(
-      width: double.infinity,
+    buildHeader(ScreenStatus mode) {
+      return Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          ...DataStrings.navigationHeaders.map((string) {
+            return GestureDetector(
+              onTap: () {
+                // NavigationHeaderVM.navigationName(name, context);
+              },
+              child: Padding(
+                padding: AppStyle.gapAll,
+                child: Text(
+                  string,
+                  style: AppStyle.titleText(<double>[20, 25, 30][mode.index], true),
+                ),
+              ),
+            );
+          }),
+        ],
+      );
+    }
+
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        minWidth: double.infinity,
+      ),
+      // mode 0: mobile, 1:tablet, 2:desktop
       child: ScreenCase(
-        mobile: mobileHeader(),
-        tablet: otherHeader(),
-        desktop: otherHeader(),
+        mobile: buildHeader(ScreenStatus.mobile),
+        tablet: buildHeader(ScreenStatus.tablet),
+        desktop: buildHeader(ScreenStatus.desktop),
       ),
     );
   }

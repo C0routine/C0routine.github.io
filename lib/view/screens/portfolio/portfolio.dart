@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:blog/view/widgets/global/navigation_header.dart';
 import 'package:blog/view/widgets/portfolio/portfolio_intro.dart';
 import 'package:blog/view/widgets/portfolio/portfolio_aboutMe.dart';
 import 'package:blog/view/widgets/portfolio/portfolio_project.dart';
@@ -22,7 +23,7 @@ class _PortfolioState extends State<Portfolio> {
         onNotification: aboutMeImageOpacity != 0.0
             ? null
             : (ScrollNotification scroll) {
-                print('scroll event listen');
+                // print('scroll event listen');
                 if ((scroll.metrics.pixels / scroll.metrics.maxScrollExtent) > 0.15 && aboutMeImageOpacity == 0.0) {
                   print('Animation Start');
                   setState(() => aboutMeImageOpacity = 1.0);
@@ -33,9 +34,10 @@ class _PortfolioState extends State<Portfolio> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              PortfolioIntro(),
+              // NavigationHeaders(scaffoldKey: _scaffoldKey),
+              const PortfolioIntro(),
               PortfolioAboutMe(aboutMeImageOpacity: aboutMeImageOpacity),
-              PortfolioProject(),
+              const PortfolioProject(),
             ],
           ),
         ),

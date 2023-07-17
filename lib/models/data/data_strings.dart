@@ -29,7 +29,7 @@ class DataStrings {
   static const String projectWebBody3 = 'Git Action 을 적용하여 반복되는 빌드 작업시간을 축소하였습니다.';
   static const String projectWebBody4 = 'UI가 어떠한 기기에서도 올바르게 보이도록 반응형으로 설계하였습니다.';
 
-  // Project HyCharge Strings
+  /// Project HyCharge Strings
   static const String projectHyChargeImageUrl1 = 'https://github.com/C0routine/Hycharge/assets/74998772/e5237a57-7a17-4e70-a47e-46f59ae6361b';
   static const String projectHyChargeImageUrl2 = 'https://github.com/C0routine/Hycharge/assets/74998772/37ef0123-110c-4298-a2f0-f0efa1901704';
   static const String projectHyChargeImageUrl3 = 'https://github.com/C0routine/Hycharge/assets/74998772/89fba25d-e7c1-497d-85bd-8f67889cd83b';
@@ -44,4 +44,9 @@ class DataStrings {
   static const String projectHyChargeBody2 = 'MVVM 디자인 패턴을 적용하여 통일성 있고 획일화된 코드로 작성 하였습니다';
   static const String projectHyChargeBody3 = '상태 관리로는 Provider 를 사용하였고, screenutil 을 사용하여 UI 의 통일성을 유지하였습니다.';
   static const String projectHyChargeBody4 = 'Firebase 를 사용하여 앱 알림을, lottie 를 사용하여 Splash Screen 을 구성 하였습니다.';
+
+
+  // Navigation Header Strings
+  static const List<String> navigationHeaders = ['Home', 'Tech'];
+
 }

@@ -7,7 +7,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       textTheme: textTheme,
-      scaffoldBackgroundColor: AppColor.backgroundWhite,
+      scaffoldBackgroundColor: AppColor.backgroundBlack,
       drawerTheme: const DrawerThemeData(
         backgroundColor: AppColor.backgroundWhite,
       ),
