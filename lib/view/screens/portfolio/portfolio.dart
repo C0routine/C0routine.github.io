@@ -34,8 +34,12 @@ class _PortfolioState extends State<Portfolio> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // NavigationHeaders(scaffoldKey: _scaffoldKey),
-              const PortfolioIntro(),
+              Stack(
+                children: [
+                  const PortfolioIntro(),
+                  NavigationHeaders(scaffoldKey: _scaffoldKey),
+                ],
+              ),
               PortfolioAboutMe(aboutMeImageOpacity: aboutMeImageOpacity),
               const PortfolioProject(),
             ],

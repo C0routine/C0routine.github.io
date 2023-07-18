@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:blog/utils/app_color.dart';
 import 'package:blog/utils/app_style.dart';
@@ -12,59 +13,6 @@ class NavigationHeaders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Mobile Header
-    mobileHeader() {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          GestureDetector(
-            // onTap: () => NavigationHeaderVM.openEndDrawer(scaffoldKey),
-            child: const Padding(
-              padding: AppStyle.gapAll,
-              child: Icon(
-                Icons.menu,
-                size: AppStyle.iconSize,
-                color: AppColor.icons,
-              ),
-            ),
-          ),
-        ],
-      );
-    }
-
-    // Desktop, Tablet Header
-    otherHeader() {
-      return Padding(
-        padding: AppStyle.gapAll,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // TODO Blog Icon
-            const Icon(Icons.home, size: AppStyle.iconSize, color: AppColor.icons),
-
-            SizedBox(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // ...DataStrings.navigationMenu.map((menu) {
-                  //   return GestureDetector(
-                  //     onTap: () => NavigationHeaderVM.navigationName(menu, context),
-                  //     child: Padding(
-                  //       padding: AppStyle.gapHorizontal,
-                  //       child: Text(menu, style: Theme.of(context).textTheme.titleMedium),
-                  //     ),
-                  //   );
-                  // }),
-                ],
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
     buildHeader(ScreenStatus mode) {
       return Row(
         mainAxisSize: MainAxisSize.max,
@@ -72,14 +20,19 @@ class NavigationHeaders extends StatelessWidget {
         children: [
           ...DataStrings.navigationHeaders.map((string) {
             return GestureDetector(
-              onTap: () {
-                // NavigationHeaderVM.navigationName(name, context);
+              onTap: () async {
+                if(string == 'Blog') {
+                  await launchUrl(Uri.parse(DataStrings.techUrl));
+                }
               },
-              child: Padding(
-                padding: AppStyle.gapAll,
-                child: Text(
-                  string,
-                  style: AppStyle.titleText(<double>[20, 25, 30][mode.index], true),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: Padding(
+                  padding: AppStyle.gapAll,
+                  child: Text(
+                    string,
+                    style: AppStyle.titleText(<double>[19, 21, 23][mode.index], true),
+                  ),
                 ),
               ),
             );

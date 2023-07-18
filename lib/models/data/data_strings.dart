@@ -47,6 +47,7 @@ class DataStrings {
 
 
   // Navigation Header Strings
-  static const List<String> navigationHeaders = ['Home', 'Tech'];
+  static const List<String> navigationHeaders = ['Blog'];
+  static const String techUrl = 'https://velog.io/@whdrjsco';
 
 }

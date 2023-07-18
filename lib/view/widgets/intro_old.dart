@@ -1,9 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-import 'package:blog/utils/app_color.dart';
-import 'package:blog/utils/app_style.dart';
-
 class ProfileIntro extends StatefulWidget {
   const ProfileIntro({Key? key}) : super(key: key);
 
