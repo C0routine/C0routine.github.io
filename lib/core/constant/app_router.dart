@@ -1,4 +1,14 @@
+enum AppRouter {
+  root(name: 'root', path: '/', subPath: '/'),;
 
-class AppRouter {
 
+  const AppRouter({
+    required this.name,
+    required this.path,
+    required this.subPath,
+  });
+
+  final String name;
+  final String path;
+  final String subPath;
 }

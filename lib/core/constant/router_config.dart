@@ -1,14 +1,16 @@
 
-import 'package:blog/home/view/home_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:blog/core/constant/app_router.dart';
+import 'package:blog/root/view/root_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter routerConfig = GoRouter(
-  initialLocation: '/',
+  initialLocation: AppRouter.root.path,
   routes: [
     GoRoute(
-      path: '/portfolio',
-      builder: (context, state) => const HomeScreen(),
+      path: AppRouter.root.path,
+      name: AppRouter.root.name,
+      builder: (context, state) => const RootScreen(),
+      routes: [],
     ),
   ],
 );

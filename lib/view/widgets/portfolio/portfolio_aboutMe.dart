@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:blog/utils/app_color.dart';
+import 'package:blog/core/constant/app_color.dart';
 import 'package:blog/utils/app_style.dart';
 import 'package:blog/utils/app_widget.dart';
 import 'package:blog/models/data/data_strings.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:blog/utils/app_color.dart';
+import 'package:blog/core/constant/app_color.dart';
 
 /// App 에서 사용하는 Style 정의
 class AppStyle {

@@ -1,6 +1,6 @@
-import 'package:blog/utils/app_theme.dart';
-import 'package:blog/utils/router.dart';
 import 'package:flutter/material.dart';
+import 'package:blog/utils/app_theme.dart';
+import 'package:blog/core/constant/router_config.dart';
 
 class BlogApp extends StatelessWidget {
   const BlogApp({super.key});
@@ -11,7 +11,7 @@ class BlogApp extends StatelessWidget {
       // web tab title
       title: 'C0routine Blog',
       // route
-      routerConfig: router,
+      routerConfig: routerConfig,
       // debug Banner hide
       debugShowCheckedModeBanner: false,
       // app theme

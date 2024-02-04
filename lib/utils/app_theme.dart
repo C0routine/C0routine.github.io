@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:blog/utils/app_color.dart';
+import 'package:blog/core/constant/app_color.dart';
 
 class AppTheme {
   static ThemeData theme() {
     return ThemeData(
       useMaterial3: true,
       textTheme: textTheme,
-      scaffoldBackgroundColor: AppColor.backgroundBlack,
-      drawerTheme: const DrawerThemeData(
-        backgroundColor: AppColor.backgroundWhite,
-      ),
+      scaffoldBackgroundColor: AppColor.black,
     );
   }
 
