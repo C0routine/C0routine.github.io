@@ -25,12 +25,12 @@ class ResponsiveLayout extends StatelessWidget {
       backgroundColor: backgroundColor,
       body: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1200),
+          constraints: const BoxConstraints(maxWidth: 1500),
           child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
               if (constraints.maxWidth < 500) {
                 return mobile;
-              } else if (constraints.maxWidth < 800) {
+              } else if (constraints.maxWidth < 1000) {
                 return tablet;
               } else {
                 return desktop;

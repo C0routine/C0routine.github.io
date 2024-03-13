@@ -1,6 +1,6 @@
 enum AppRouter {
-  root(name: 'root', path: '/', subPath: '/'),;
-
+  home(name: 'home', path: '/', subPath: '/'),
+  test(name: 'test', path: '/test', subPath: '/test');
 
   const AppRouter({
     required this.name,
