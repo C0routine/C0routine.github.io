@@ -43,7 +43,7 @@ class _ScrollMoverState extends State<ScrollMover> {
   Widget build(BuildContext context) {
     return MouseRegion(
       onExit: (event) {
-        if (currentIndex != offset.dy.toInt()) {
+        if (currentIndex != offset.dx.toInt()) {
           setState(() {
             offset = Offset(currentIndex.toDouble(), 0);
           });
@@ -64,7 +64,7 @@ class _ScrollMoverState extends State<ScrollMover> {
                   curve: Curves.decelerate,
                   child: Container(
                     width: 35.w,
-                    height: 4,
+                    height: 4.h,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(16.r),

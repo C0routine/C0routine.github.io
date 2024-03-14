@@ -31,26 +31,4 @@ class CurrentPlatforms extends _$CurrentPlatforms {
       _changeState(CurrentPlatform.desktop);
     }
   }
-
-  double platformDouble(double mobileSize, double tabletSize, double desktopSize) {
-    switch (state) {
-      case CurrentPlatform.mobile:
-        return mobileSize;
-      case CurrentPlatform.tablet:
-        return tabletSize;
-      case CurrentPlatform.desktop:
-        return desktopSize;
-    }
-  }
-
-  int platformInt(int mobileSize, int tabletSize, int desktopSize) {
-    switch (state) {
-      case CurrentPlatform.mobile:
-        return mobileSize;
-      case CurrentPlatform.tablet:
-        return tabletSize;
-      case CurrentPlatform.desktop:
-        return desktopSize;
-    }
-  }
 }

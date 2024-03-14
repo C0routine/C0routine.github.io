@@ -6,7 +6,7 @@ part of 'current_platform_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$currentPlatformsHash() => r'c520b6888ec8b2bb662516ecd168caab922d423e';
+String _$currentPlatformsHash() => r'5723180dde3233e8de1956f48c7cc202e3a8b1f9';
 
 /// See also [CurrentPlatforms].
 @ProviderFor(CurrentPlatforms)
