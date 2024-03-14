@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:blog/core/constant/app_color.dart';
 import 'package:blog/utils/app_style.dart';
 import 'package:blog/utils/app_widget.dart';
-import 'package:blog/models/data/data_strings.dart';
+import 'package:blog/core/models/data/data_strings.dart';
 
 class PortfolioIntro extends StatefulWidget {
   const PortfolioIntro({super.key});

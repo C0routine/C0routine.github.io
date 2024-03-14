@@ -8,12 +8,10 @@ class ScrollMover extends StatefulWidget {
     super.key,
     required this.controller,
     required this.pages,
-    this.onPaged,
   });
 
   final ScrollController controller;
   final List<String> pages;
-  final List<Function()>? onPaged;
 
   @override
   State<ScrollMover> createState() => _ScrollMoverState();
@@ -32,7 +30,7 @@ class _ScrollMoverState extends State<ScrollMover> {
       for (int i = 0; i < widget.pages.length; i++) {
         if (widget.controller.offset >= branchScrollExtent * i && widget.controller.offset < branchScrollExtent * (i + 1)) {
           setState(() {
-            offset = Offset(0, i.toDouble());
+            offset = Offset(i.toDouble(), 0);
             currentIndex = i;
           });
         }
@@ -47,18 +45,38 @@ class _ScrollMoverState extends State<ScrollMover> {
       onExit: (event) {
         if (currentIndex != offset.dy.toInt()) {
           setState(() {
-            offset = Offset(0, currentIndex.toDouble());
+            offset = Offset(currentIndex.toDouble(), 0);
           });
         }
       },
-      child: IntrinsicHeight(
-        child: Row(
+      child: IntrinsicWidth(
+        child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Stack(
+              alignment: Alignment.centerLeft,
+              children: [
+                const Divider(height: 1, thickness: 1, color: Colors.white),
+                AnimatedSlide(
+                  offset: offset,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.decelerate,
+                  child: Container(
+                    width: 35.w,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16.r),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
             DefaultTextStyle(
               style: const TextStyle(fontWeight: FontWeight.w500, color: Colors.white),
-              child: Column(
+              child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: widget.pages.mapIndexed((index, page) {
                   return GestureDetector(
@@ -68,25 +86,25 @@ class _ScrollMoverState extends State<ScrollMover> {
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.ease,
                       );
-                      setState(() {
-                        offset = Offset(0, index.toDouble());
-                        currentIndex = index;
-                      });
+                      // setState(() {
+                      //   offset = Offset(0, index.toDouble());
+                      //   currentIndex = index;
+                      // });
+                      // if (widget.onPaged != null) {
+                      //   widget.onPaged!(index);
+                      // }
                     },
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
                       onEnter: (event) {
                         setState(() {
-                          offset = Offset(0, index.toDouble());
+                          offset = Offset(index.toDouble(), 0);
                         });
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: SizedBox(
-                          height: 50.h,
-                          child: Center(
-                            child: Text(page),
-                          ),
+                      child: SizedBox(
+                        width: 35.w,
+                        child: Center(
+                          child: Text(page),
                         ),
                       ),
                     ),
@@ -94,20 +112,6 @@ class _ScrollMoverState extends State<ScrollMover> {
                 }).toList(),
               ),
             ),
-            AnimatedSlide(
-              offset: offset,
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.decelerate,
-              child: Container(
-                width: 3,
-                height: 50.h,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16.r),
-                ),
-              ),
-            ),
-            const VerticalDivider(width: 1, thickness: 1, color: Colors.white),
           ],
         ),
       ),

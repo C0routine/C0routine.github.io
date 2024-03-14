@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'package:blog/core/constant/app_color.dart';
 import 'package:blog/utils/app_style.dart';
-import 'package:blog/models/data/data_strings.dart';
+import 'package:blog/core/models/data/data_strings.dart';
 import 'package:blog/view/widgets/global/screen_case.dart';
 
 class NavigationHeaders extends StatelessWidget {
