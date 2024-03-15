@@ -1,12 +1,13 @@
 import 'dart:html';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:blog/core/constant/app_data.dart';
 import 'package:blog/core/models/data/project_list_model.dart';
+import 'package:blog/home/components/project_detail_modal.dart';
 
 /// 프로젝트 & 포트폴리오 리스트
 /// [webUrl] 의 경우 WebPage 로 이동
@@ -203,13 +204,20 @@ class _ProjectListState extends State<ProjectList> {
                           ),
                           const SizedBox(height: 10),
                           ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
                               /// WebUrl 이 존재할 경우 WebPage 로 이동
-                              if(project.webUrl != null) {
+                              if (project.webUrl != null) {
                                 window.open(project.webUrl!, '_blank');
                                 return;
                               }
 
+                              return showDialog(
+                                context: context,
+                                barrierColor: Colors.black54.withOpacity(0.8),
+                                builder: (BuildContext context) {
+                                  return ProjectDetailModal(project: project);
+                                },
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.lightGreen,
