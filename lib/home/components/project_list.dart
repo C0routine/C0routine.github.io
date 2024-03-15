@@ -1,6 +1,6 @@
-import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -207,7 +207,8 @@ class _ProjectListState extends State<ProjectList> {
                             onPressed: () async {
                               /// WebUrl 이 존재할 경우 WebPage 로 이동
                               if (project.webUrl != null) {
-                                window.open(project.webUrl!, '_blank');
+                                // window.open(project.webUrl!, '_blank');
+                                launchUrlString(project.webUrl!);
                                 return;
                               }
 

@@ -78,7 +78,7 @@ class _ProjectDetailModalState extends State<ProjectDetailModal> {
           ),
           const SizedBox(height: 15),
           ConstrainedBox(
-            constraints: BoxConstraints(
+            constraints: const BoxConstraints(
               maxWidth: 300,
             ),
             child: Row(

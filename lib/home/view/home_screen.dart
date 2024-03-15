@@ -3,9 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+import 'package:blog/home/components/contact_card.dart';
 import 'package:blog/home/components/scroll_mover.dart';
 import 'package:blog/home/components/project_list.dart';
 import 'package:blog/core/component/responsive_page.dart';
+import 'package:blog/home/components/contact_animated.dart';
+import 'package:blog/core/extension/extension_current_platform.dart';
 import 'package:blog/core/providers/current_platform_providers.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -15,22 +18,33 @@ class HomeScreen extends ConsumerStatefulWidget {
   ConsumerState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends ConsumerState<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> with TickerProviderStateMixin {
   final ScrollController _controller = ScrollController();
 
   bool secondPageAnimation = false;
   bool secondPageOpacity = false;
+  bool thirdPageAnimation = false;
 
   @override
   void initState() {
     _controller.addListener(() {
       if (_controller.position.pixels >= _controller.position.viewportDimension / 2) {
-        setState(() {
-          secondPageAnimation = true;
-          Future.delayed(const Duration(milliseconds: 1200), () {
-            setState(() => secondPageOpacity = true);
+        if (secondPageAnimation == false) {
+          setState(() {
+            secondPageAnimation = true;
+            Future.delayed(const Duration(milliseconds: 1200), () {
+              setState(() => secondPageOpacity = true);
+            });
           });
-        });
+        }
+      }
+
+      if (_controller.position.pixels >= _controller.position.viewportDimension * 1.5) {
+        if (thirdPageAnimation == false) {
+          setState(() {
+            thirdPageAnimation = true;
+          });
+        }
       }
     });
     super.initState();
@@ -157,8 +171,26 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   childCount: 1,
                   (BuildContext context, int index) {
                     return Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        if (thirdPageAnimation)
+                          ConstrainedBox(
+                            constraints: const BoxConstraints(
+                              minWidth: 300,
+                              maxWidth: 1000,
+                              maxHeight: 600,
+                            ),
+                            child: CustomPaint(
+                              size: Size(0.8.sw, 0.8.sh),
+                              painter: ContactCardPainter(
+                                vertex: state.platformDouble(100, 150, 200),
+                                thickness: state.platformDouble(7, 12, 15),
+                              ),
+                              child: ContactAnimated(state: state),
+                            ),
+                          )
+                      ],
                     );
                   },
                 ),
