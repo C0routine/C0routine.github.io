@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:blog/core/constant/app_color.dart';
 import 'package:blog/utils/app_style.dart';
 import 'package:blog/utils/app_widget.dart';
+import 'package:blog/core/constant/app_color.dart';
 import 'package:blog/core/models/data/data_strings.dart';
 
-class PortfolioProject extends StatefulWidget {
-  const PortfolioProject({super.key});
+class FirstBlogProject extends StatefulWidget {
+  const FirstBlogProject({super.key});
 
   @override
-  State<PortfolioProject> createState() => _PortfolioProjectState();
+  State<FirstBlogProject> createState() => _FirstBlogProjectState();
 }
 
-class _PortfolioProjectState extends State<PortfolioProject> {
+class _FirstBlogProjectState extends State<FirstBlogProject> {
   @override
   Widget build(BuildContext context) {
     webImageBox(int mode) {
@@ -145,7 +145,7 @@ class _PortfolioProjectState extends State<PortfolioProject> {
         minHeight: AppStyle.getSize(context).height,
       ),
       // mode 0: mobile, 1:tablet, 2:desktop
-      child: ScreenCase(
+      child: FirstBlogScreenCase(
         mobile: projectBuild(0),
         tablet: projectBuild(1),
         desktop: projectBuild(2),

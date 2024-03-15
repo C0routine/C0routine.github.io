@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:blog/core/constant/app_color.dart';
 import 'package:blog/utils/app_style.dart';
 import 'package:blog/core/models/data/data_strings.dart';
-import 'package:blog/view/widgets/global/screen_case.dart';
+import 'package:blog/history/components/first/first_blog_screen_case.dart';
 
-class NavigationHeaders extends StatelessWidget {
-  const NavigationHeaders({super.key, required this.scaffoldKey});
+class FirstBlogNavigationHeaders extends StatelessWidget {
+  const FirstBlogNavigationHeaders({super.key, required this.scaffoldKey});
 
   final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
-    buildHeader(ScreenStatus mode) {
+    buildHeader(FirstBlogScreenStatus mode) {
       return Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -46,10 +45,10 @@ class NavigationHeaders extends StatelessWidget {
         minWidth: double.infinity,
       ),
       // mode 0: mobile, 1:tablet, 2:desktop
-      child: ScreenCase(
-        mobile: buildHeader(ScreenStatus.mobile),
-        tablet: buildHeader(ScreenStatus.tablet),
-        desktop: buildHeader(ScreenStatus.desktop),
+      child: FirstBlogScreenCase(
+        mobile: buildHeader(FirstBlogScreenStatus.mobile),
+        tablet: buildHeader(FirstBlogScreenStatus.tablet),
+        desktop: buildHeader(FirstBlogScreenStatus.desktop),
       ),
     );
   }

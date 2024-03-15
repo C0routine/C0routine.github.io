@@ -59,49 +59,49 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               physics: const PageScrollPhysics(),
               slivers: [
                 /* Intro */
-                SliverFillViewport(
-                  delegate: SliverChildBuilderDelegate(
-                    childCount: 1,
-                    (BuildContext context, int index) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          if (firstPageAnimation) ...[
-                            AnimatedTextKit(
-                              key: UniqueKey(),
-                              totalRepeatCount: 1,
-                              animatedTexts: [
-                                TypewriterAnimatedText(
-                                  'Mr.Chae Blog',
-                                  textStyle: TextStyle(fontSize: 30.sp, color: Colors.white, fontWeight: FontWeight.w700, height: 1.0),
-                                  speed: const Duration(milliseconds: 200),
-                                  cursor: '_',
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 20),
-                            TweenAnimationBuilder(
-                              tween: Tween(begin: 0.0, end: (1.sw / 2)),
-                              curve: Curves.ease,
-                              duration: const Duration(milliseconds: 4000),
-                              builder: (BuildContext context, double value, Widget? child) {
-                                return Container(
-                                  width: value,
-                                  height: 10,
-                                  decoration: BoxDecoration(
-                                    color: Colors.lightGreen,
-                                    borderRadius: BorderRadius.circular(16.r),
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ],
-                      );
-                    },
-                  ),
-                ),
+                // SliverFillViewport(
+                //   delegate: SliverChildBuilderDelegate(
+                //     childCount: 1,
+                //     (BuildContext context, int index) {
+                //       return Column(
+                //         mainAxisAlignment: MainAxisAlignment.center,
+                //         crossAxisAlignment: CrossAxisAlignment.center,
+                //         children: [
+                //           if (firstPageAnimation) ...[
+                //             AnimatedTextKit(
+                //               key: UniqueKey(),
+                //               totalRepeatCount: 1,
+                //               animatedTexts: [
+                //                 TypewriterAnimatedText(
+                //                   'Mr.Chae Blog',
+                //                   textStyle: TextStyle(fontSize: 30.sp, color: Colors.white, fontWeight: FontWeight.w700, height: 1.0),
+                //                   speed: const Duration(milliseconds: 200),
+                //                   cursor: '_',
+                //                 ),
+                //               ],
+                //             ),
+                //             const SizedBox(height: 20),
+                //             TweenAnimationBuilder(
+                //               tween: Tween(begin: 0.0, end: (1.sw / 2)),
+                //               curve: Curves.ease,
+                //               duration: const Duration(milliseconds: 4000),
+                //               builder: (BuildContext context, double value, Widget? child) {
+                //                 return Container(
+                //                   width: value,
+                //                   height: 10,
+                //                   decoration: BoxDecoration(
+                //                     color: Colors.lightGreen,
+                //                     borderRadius: BorderRadius.circular(16.r),
+                //                   ),
+                //                 );
+                //               },
+                //             ),
+                //           ],
+                //         ],
+                //       );
+                //     },
+                //   ),
+                // ),
 
                 /* Project & Portfolio Page */
                 SliverFillViewport(

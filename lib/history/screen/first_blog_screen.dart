@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:blog/view/widgets/global/navigation_header.dart';
-import 'package:blog/view/widgets/portfolio/portfolio_intro.dart';
-import 'package:blog/view/widgets/portfolio/portfolio_aboutMe.dart';
-import 'package:blog/view/widgets/portfolio/portfolio_project.dart';
+import 'package:blog/history/components/first/first_blog_intro.dart';
+import 'package:blog/history/components/first/first_blog_project.dart';
+import 'package:blog/history/components/first/first_blog_about_me.dart';
+import 'package:blog/history/components/first/first_blog_navigation_header.dart';
 
-class Portfolio extends StatefulWidget {
-  const Portfolio({super.key});
+class FirstBlogScreen extends StatefulWidget {
+  const FirstBlogScreen({super.key});
 
   @override
-  State<Portfolio> createState() => _PortfolioState();
+  State<FirstBlogScreen> createState() => _FirstBlogScreenState();
 }
 
-class _PortfolioState extends State<Portfolio> {
+class _FirstBlogScreenState extends State<FirstBlogScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   double aboutMeImageOpacity = 0.0;
 
@@ -25,7 +25,7 @@ class _PortfolioState extends State<Portfolio> {
             : (ScrollNotification scroll) {
                 // print('scroll event listen');
                 if ((scroll.metrics.pixels / scroll.metrics.maxScrollExtent) > 0.15 && aboutMeImageOpacity == 0.0) {
-                  print('Animation Start');
+                  // print('Animation Start');
                   setState(() => aboutMeImageOpacity = 1.0);
                   return false;
                 }
@@ -36,12 +36,12 @@ class _PortfolioState extends State<Portfolio> {
             children: [
               Stack(
                 children: [
-                  const PortfolioIntro(),
-                  NavigationHeaders(scaffoldKey: _scaffoldKey),
+                  const FirstBlogIntro(),
+                  FirstBlogNavigationHeaders(scaffoldKey: _scaffoldKey),
                 ],
               ),
-              PortfolioAboutMe(aboutMeImageOpacity: aboutMeImageOpacity),
-              const PortfolioProject(),
+              FirstBlogAboutMe(aboutMeImageOpacity: aboutMeImageOpacity),
+              const FirstBlogProject(),
             ],
           ),
         ),

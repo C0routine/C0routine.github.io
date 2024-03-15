@@ -1,2 +1,2 @@
 
-export 'package:blog/view/widgets/global/screen_case.dart';
+export 'package:blog/history/components/first/first_blog_screen_case.dart';

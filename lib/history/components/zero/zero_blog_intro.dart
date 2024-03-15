@@ -1,14 +1,14 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-class ProfileIntro extends StatefulWidget {
-  const ProfileIntro({Key? key}) : super(key: key);
+class ZeroBlogIntro extends StatefulWidget {
+  const ZeroBlogIntro({Key? key}) : super(key: key);
 
   @override
-  State<ProfileIntro> createState() => _ProfileIntroState();
+  State<ZeroBlogIntro> createState() => _ZeroBlogIntroState();
 }
 
-class _ProfileIntroState extends State<ProfileIntro> with TickerProviderStateMixin {
+class _ZeroBlogIntroState extends State<ZeroBlogIntro> with TickerProviderStateMixin {
   late AnimationController _textController;
   late AnimationController _scaleController;
   late Animation<double> _text;

@@ -10,7 +10,13 @@ final GoRouter routerConfig = GoRouter(
       path: AppRouter.home.path,
       name: AppRouter.home.name,
       builder: (context, state) => const HomeScreen(),
-      routes: [],
+      routes: [
+        GoRoute(
+          path: AppRouter.history.subPath,
+          name: AppRouter.history.name,
+          builder: (context, state) => const HomeScreen(),
+        ),
+      ],
     ),
   ],
 );

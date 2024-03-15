@@ -5,14 +5,14 @@ import 'package:blog/utils/app_style.dart';
 import 'package:blog/utils/app_widget.dart';
 import 'package:blog/core/models/data/data_strings.dart';
 
-class PortfolioIntro extends StatefulWidget {
-  const PortfolioIntro({super.key});
+class FirstBlogIntro extends StatefulWidget {
+  const FirstBlogIntro({super.key});
 
   @override
-  State<PortfolioIntro> createState() => _PortfolioIntroState();
+  State<FirstBlogIntro> createState() => _FirstBlogIntroState();
 }
 
-class _PortfolioIntroState extends State<PortfolioIntro> with TickerProviderStateMixin {
+class _FirstBlogIntroState extends State<FirstBlogIntro> with TickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 2),
     vsync: this,
@@ -78,7 +78,7 @@ class _PortfolioIntroState extends State<PortfolioIntro> with TickerProviderStat
         minHeight: AppStyle.getSize(context).height,
       ),
       // mode 0: mobile, 1:tablet, 2:desktop
-      child: ScreenCase(
+      child: FirstBlogScreenCase(
         mobile: introBuild(0),
         tablet: introBuild(1),
         desktop: introBuild(2),

@@ -8,16 +8,16 @@ import 'package:blog/utils/app_style.dart';
 import 'package:blog/utils/app_widget.dart';
 import 'package:blog/core/models/data/data_strings.dart';
 
-class PortfolioAboutMe extends StatefulWidget {
-  const PortfolioAboutMe({super.key, required this.aboutMeImageOpacity});
+class FirstBlogAboutMe extends StatefulWidget {
+  const FirstBlogAboutMe({super.key, required this.aboutMeImageOpacity});
 
   final double aboutMeImageOpacity;
 
   @override
-  State<PortfolioAboutMe> createState() => _PortfolioAboutMeState();
+  State<FirstBlogAboutMe> createState() => _FirstBlogAboutMeState();
 }
 
-class _PortfolioAboutMeState extends State<PortfolioAboutMe> {
+class _FirstBlogAboutMeState extends State<FirstBlogAboutMe> {
   @override
   Widget build(BuildContext context) {
     aboutMeBody(int mode) {
@@ -154,7 +154,7 @@ class _PortfolioAboutMeState extends State<PortfolioAboutMe> {
         minHeight: AppStyle.getSize(context).height,
       ),
       // mode 0: mobile, 1:tablet, 2:desktop
-      child: ScreenCase(
+      child: FirstBlogScreenCase(
         mobile: aboutMeBuild(0),
         tablet: aboutMeBuild(1),
         desktop: aboutMeBuild(2),

@@ -2,14 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class RootDesktop extends StatefulWidget {
-  const RootDesktop({super.key});
+class TestScreen extends StatefulWidget {
+  const TestScreen({super.key});
 
   @override
-  State<RootDesktop> createState() => _RootDesktopState();
+  State<TestScreen> createState() => _TestScreenState();
 }
 
-class _RootDesktopState extends State<RootDesktop> {
+class _TestScreenState extends State<TestScreen> {
   double x = 0;
   double y = 0;
   double z = 0;
