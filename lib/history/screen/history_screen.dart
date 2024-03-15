@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 /// 블로그 히스토리 화면 (이전 변경 화면, 이전 변경 내용 등)

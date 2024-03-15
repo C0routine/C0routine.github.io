@@ -1,7 +1,8 @@
-
-import 'package:blog/core/constant/app_router.dart';
-import 'package:blog/home/view/home_screen.dart';
 import 'package:go_router/go_router.dart';
+import 'package:blog/core/constant/app_router.dart';
+
+import 'package:blog/home/view/home_screen.dart';
+import 'package:blog/history/screen/history_screen.dart';
 
 final GoRouter routerConfig = GoRouter(
   initialLocation: AppRouter.home.path,
@@ -14,7 +15,7 @@ final GoRouter routerConfig = GoRouter(
         GoRoute(
           path: AppRouter.history.subPath,
           name: AppRouter.history.name,
-          builder: (context, state) => const HomeScreen(),
+          builder: (context, state) => const HistoryScreen(),
         ),
       ],
     ),

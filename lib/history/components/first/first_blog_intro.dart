@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:blog/core/constant/app_color.dart';
-import 'package:blog/utils/app_style.dart';
-import 'package:blog/utils/app_widget.dart';
 import 'package:blog/core/models/data/data_strings.dart';
+import 'package:blog/history/components/first/first_blog_app_style.dart';
+import 'package:blog/history/components/first/first_blog_screen_case.dart';
 
 class FirstBlogIntro extends StatefulWidget {
   const FirstBlogIntro({super.key});
@@ -40,26 +40,26 @@ class _FirstBlogIntroState extends State<FirstBlogIntro> with TickerProviderStat
             ScaleTransition(
               scale: _animation,
               child: Padding(
-                padding: AppStyle.gapHorizontal,
+                padding: FirstBlogAppStyle.gapHorizontal,
                 child: Center(
                   child: FittedBox(
                     fit: BoxFit.cover,
                     child: Text(
                       DataStrings.introTitle,
-                      style: AppStyle.titleText(<double>[65, 85, 100][mode], true),
+                      style: FirstBlogAppStyle.titleText(<double>[65, 85, 100][mode], true),
                     ),
                   ),
                 ),
               ),
             ),
             TweenAnimationBuilder(
-              tween: Tween(begin: 0.0, end: (AppStyle.getSize(context).width / 2)),
+              tween: Tween(begin: 0.0, end: (FirstBlogAppStyle.getSize(context).width / 2)),
               curve: Curves.elasticOut,
               duration: const Duration(milliseconds: 2600),
               builder: (BuildContext context, double value, Widget? child) {
                 return Container(
                   width: value,
-                  height: AppStyle.reactiveSize(7, context),
+                  height: FirstBlogAppStyle.reactiveSize(7, context),
                   decoration: const BoxDecoration(
                     color: AppColor.backgroundWhite,
                     borderRadius: BorderRadius.only(topRight: Radius.circular(16), bottomRight: Radius.circular(16)),
@@ -75,7 +75,7 @@ class _FirstBlogIntroState extends State<FirstBlogIntro> with TickerProviderStat
     return ConstrainedBox(
       constraints: BoxConstraints(
         minWidth: double.infinity,
-        minHeight: AppStyle.getSize(context).height,
+        minHeight: FirstBlogAppStyle.getSize(context).height,
       ),
       // mode 0: mobile, 1:tablet, 2:desktop
       child: FirstBlogScreenCase(

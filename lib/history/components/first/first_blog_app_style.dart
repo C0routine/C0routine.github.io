@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:blog/core/constant/app_color.dart';
 
 /// App 에서 사용하는 Style 정의
-class AppStyle {
-  static final AppStyle _appStyle = AppStyle._init();
+class FirstBlogAppStyle {
+  static final FirstBlogAppStyle _appStyle = FirstBlogAppStyle._init();
 
-  AppStyle._init();
+  FirstBlogAppStyle._init();
 
-  factory AppStyle() {
+  factory FirstBlogAppStyle() {
     return _appStyle;
   }
 

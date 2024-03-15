@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:blog/utils/app_style.dart';
-import 'package:blog/utils/app_widget.dart';
 import 'package:blog/core/constant/app_color.dart';
 import 'package:blog/core/models/data/data_strings.dart';
+import 'package:blog/history/components/first/first_blog_app_style.dart';
+import 'package:blog/history/components/first/first_blog_screen_case.dart';
 
 class FirstBlogProject extends StatefulWidget {
   const FirstBlogProject({super.key});
@@ -18,15 +18,15 @@ class _FirstBlogProjectState extends State<FirstBlogProject> {
   Widget build(BuildContext context) {
     webImageBox(int mode) {
       return Container(
-        margin: AppStyle.gapAll,
-        constraints: BoxConstraints(maxWidth: mode == 0 ? AppStyle.reactiveSize(600, context) : 800),
+        margin: FirstBlogAppStyle.gapAll,
+        constraints: BoxConstraints(maxWidth: mode == 0 ? FirstBlogAppStyle.reactiveSize(600, context) : 800),
         decoration: BoxDecoration(
           color: Colors.transparent,
           border: Border.all(width: 2, color: AppColor.backgroundWhite),
-          borderRadius: AppStyle.borderRadius,
+          borderRadius: FirstBlogAppStyle.borderRadius,
         ),
         child: ClipRRect(
-          borderRadius: AppStyle.borderRadius,
+          borderRadius: FirstBlogAppStyle.borderRadius,
           child: Image.network(DataStrings.projectWebImageUrl, fit: BoxFit.cover),
         ),
       );
@@ -48,19 +48,19 @@ class _FirstBlogProjectState extends State<FirstBlogProject> {
       return Container(
         height: 500,
         width: double.infinity,
-        margin: AppStyle.gapAll,
+        margin: FirstBlogAppStyle.gapAll,
         color: Colors.transparent,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: imageUrl.length,
           itemBuilder: (BuildContext context, int index) {
             return ClipRRect(
-              borderRadius: AppStyle.borderRadius,
+              borderRadius: FirstBlogAppStyle.borderRadius,
               child: Image.network(imageUrl[index], fit: BoxFit.cover),
             );
           },
           separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(width: AppStyle.basic);
+            return const SizedBox(width: FirstBlogAppStyle.basic);
           },
         ),
       );
@@ -73,7 +73,7 @@ class _FirstBlogProjectState extends State<FirstBlogProject> {
           cursor: SystemMouseCursors.click,
           child: Text(
             DataStrings.projectGithub,
-            style: AppStyle.normalText(<double>[20, 25, 30][mode], true).copyWith(
+            style: FirstBlogAppStyle.normalText(<double>[20, 25, 30][mode], true).copyWith(
               decoration: TextDecoration.underline,
               decorationColor: AppColor.textWhite,
             ),
@@ -85,11 +85,11 @@ class _FirstBlogProjectState extends State<FirstBlogProject> {
 
     projectInfoText(int mode, List<String> textList) {
       return Container(
-        margin: AppStyle.gapHorizontal,
+        margin: FirstBlogAppStyle.gapHorizontal,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: textList.map((body) {
-            return Text(body, style: AppStyle.normalText(<double>[15, 18, 20][mode], true));
+            return Text(body, style: FirstBlogAppStyle.normalText(<double>[15, 18, 20][mode], true));
           }).toList(),
         ),
       );
@@ -102,10 +102,10 @@ class _FirstBlogProjectState extends State<FirstBlogProject> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(AppStyle.mediumSize),
+              padding: const EdgeInsets.all(FirstBlogAppStyle.mediumSize),
               child: FittedBox(
                 fit: BoxFit.cover,
-                child: Text(DataStrings.projectTitle, style: AppStyle.titleText(<double>[65, 85, 100][mode], true)),
+                child: Text(DataStrings.projectTitle, style: FirstBlogAppStyle.titleText(<double>[65, 85, 100][mode], true)),
               ),
             ),
             webImageBox(mode),
@@ -142,7 +142,7 @@ class _FirstBlogProjectState extends State<FirstBlogProject> {
     return ConstrainedBox(
       constraints: BoxConstraints(
         minWidth: double.infinity,
-        minHeight: AppStyle.getSize(context).height,
+        minHeight: FirstBlogAppStyle.getSize(context).height,
       ),
       // mode 0: mobile, 1:tablet, 2:desktop
       child: FirstBlogScreenCase(

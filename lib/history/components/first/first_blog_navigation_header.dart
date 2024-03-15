@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:blog/utils/app_style.dart';
 import 'package:blog/core/models/data/data_strings.dart';
+import 'package:blog/history/components/first/first_blog_app_style.dart';
 import 'package:blog/history/components/first/first_blog_screen_case.dart';
 
 class FirstBlogNavigationHeaders extends StatelessWidget {
@@ -27,10 +27,10 @@ class FirstBlogNavigationHeaders extends StatelessWidget {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: Padding(
-                  padding: AppStyle.gapAll,
+                  padding: FirstBlogAppStyle.gapAll,
                   child: Text(
                     string,
-                    style: AppStyle.titleText(<double>[19, 21, 23][mode.index], true),
+                    style: FirstBlogAppStyle.titleText(<double>[19, 21, 23][mode.index], true),
                   ),
                 ),
               ),

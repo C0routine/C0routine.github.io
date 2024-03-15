@@ -4,9 +4,9 @@ import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:blog/core/constant/app_color.dart';
-import 'package:blog/utils/app_style.dart';
-import 'package:blog/utils/app_widget.dart';
 import 'package:blog/core/models/data/data_strings.dart';
+import 'package:blog/history/components/first/first_blog_app_style.dart';
+import 'package:blog/history/components/first/first_blog_screen_case.dart';
 
 class FirstBlogAboutMe extends StatefulWidget {
   const FirstBlogAboutMe({super.key, required this.aboutMeImageOpacity});
@@ -22,8 +22,8 @@ class _FirstBlogAboutMeState extends State<FirstBlogAboutMe> {
   Widget build(BuildContext context) {
     aboutMeBody(int mode) {
       return Container(
-        margin: mode == 0 ? AppStyle.gapAll : EdgeInsets.only(left: mode == 1 ? 50 : 75),
-        padding: AppStyle.gapLeft,
+        margin: mode == 0 ? FirstBlogAppStyle.gapAll : EdgeInsets.only(left: mode == 1 ? 50 : 75),
+        padding: FirstBlogAppStyle.gapLeft,
         decoration: BoxDecoration(
           border: Border(
             left: BorderSide(
@@ -38,39 +38,39 @@ class _FirstBlogAboutMeState extends State<FirstBlogAboutMe> {
           children: [
             Text(
               DataStrings.aboutMeTitle,
-              style: AppStyle.titleText(<double>[35, 55, 70][mode], false),
+              style: FirstBlogAppStyle.titleText(<double>[35, 55, 70][mode], false),
             ),
             const SizedBox(height: 20),
             Text(
               DataStrings.aboutMeBody1,
-              style: AppStyle.normalText(<double>[15, 20, 25][mode], false),
+              style: FirstBlogAppStyle.normalText(<double>[15, 20, 25][mode], false),
             ),
             const SizedBox(height: 10),
             Text(
               DataStrings.aboutMeBody2,
-              style: AppStyle.normalText(<double>[15, 20, 25][mode], false),
+              style: FirstBlogAppStyle.normalText(<double>[15, 20, 25][mode], false),
             ),
 
             // career
             const SizedBox(height: 50),
             Text(
               DataStrings.careerTitle,
-              style: AppStyle.titleText(<double>[25, 35, 45][mode], false),
+              style: FirstBlogAppStyle.titleText(<double>[25, 35, 45][mode], false),
             ),
             const SizedBox(height: 10),
             Text(
               DataStrings.careerDate,
-              style: AppStyle.normalText(<double>[20, 25, 30][mode], false),
+              style: FirstBlogAppStyle.normalText(<double>[20, 25, 30][mode], false),
             ),
             const SizedBox(height: 10),
             RichText(
               text: TextSpan(
                 text: DataStrings.careerBody1,
-                style: AppStyle.normalText(<double>[15, 20, 25][mode], false),
+                style: FirstBlogAppStyle.normalText(<double>[15, 20, 25][mode], false),
                 children: <TextSpan>[
                   TextSpan(
                     text: DataStrings.careerBody2,
-                    style: AppStyle.titleText(<double>[16, 21, 26][mode], false).copyWith(
+                    style: FirstBlogAppStyle.titleText(<double>[16, 21, 26][mode], false).copyWith(
                       decoration: TextDecoration.underline,
                     ),
                     recognizer: TapGestureRecognizer()
@@ -84,7 +84,7 @@ class _FirstBlogAboutMeState extends State<FirstBlogAboutMe> {
                   ),
                   TextSpan(
                     text: DataStrings.careerBody3,
-                    style: AppStyle.normalText(<double>[15, 20, 25][mode], false),
+                    style: FirstBlogAppStyle.normalText(<double>[15, 20, 25][mode], false),
                   ),
                 ],
               ),
@@ -110,7 +110,7 @@ class _FirstBlogAboutMeState extends State<FirstBlogAboutMe> {
                       child: Transform.rotate(
                         angle: (math.pi / 3),
                         child: ClipRRect(
-                          borderRadius: AppStyle.borderRadiusHard,
+                          borderRadius: FirstBlogAppStyle.borderRadiusHard,
                           child: AnimatedOpacity(
                             opacity: widget.aboutMeImageOpacity,
                             duration: const Duration(milliseconds: 2600),
@@ -151,7 +151,7 @@ class _FirstBlogAboutMeState extends State<FirstBlogAboutMe> {
     return ConstrainedBox(
       constraints: BoxConstraints(
         minWidth: double.infinity,
-        minHeight: AppStyle.getSize(context).height,
+        minHeight: FirstBlogAppStyle.getSize(context).height,
       ),
       // mode 0: mobile, 1:tablet, 2:desktop
       child: FirstBlogScreenCase(

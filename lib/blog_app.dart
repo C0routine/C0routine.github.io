@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:blog/utils/app_theme.dart';
 import 'package:blog/core/constant/router_config.dart';
 
 class BlogApp extends ConsumerWidget {
@@ -21,8 +20,6 @@ class BlogApp extends ConsumerWidget {
           routerConfig: routerConfig,
           // debug Banner hide
           debugShowCheckedModeBanner: false,
-          // app theme
-          theme: AppTheme.theme(),
         );
       },
     );
